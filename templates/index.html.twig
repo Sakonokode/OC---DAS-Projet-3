@@ -2,6 +2,7 @@
 
 {% block stylesheets %}
     {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/home.css') }}">
 {% endblock %}
 
 {% block page %}
@@ -9,8 +10,8 @@
         <div class="ui inverted vertical masthead center aligned segment">
             <div class="ui container">
                 <div class="ui large secondary inverted pointing menu">
-                    <a class="item">Accueil</a>
-                    <a class="item">Films a l'affiche</a>
+                    <a class="item" href="{{ path('home') }}">Accueil</a>
+                    <a class="item" href="{{ path('movies') }}">Films a l'affiche</a>
                     <a class="item">A propos de nous</a>
                     <div class="right item">
                         <a class="ui inverted button">Connection</a>

@@ -36,6 +36,12 @@ trait DescribableTrait
     protected $author;
 
     /**
+     * @var null|string $content
+     * @ORM\Column(type="text", nullable=true)
+     */
+    protected $content;
+
+    /**
      * @return string
      */
     public function getTitle(): string
@@ -97,5 +103,21 @@ trait DescribableTrait
     public function setAuthor(string $author): void
     {
         $this->author = $author;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getContent(): ?string
+    {
+        return $this->content;
+    }
+
+    /**
+     * @param string|null $content
+     */
+    public function setContent(?string $content): void
+    {
+        $this->content = $content;
     }
 }

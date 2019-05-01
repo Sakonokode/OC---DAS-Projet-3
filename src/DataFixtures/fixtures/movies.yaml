@@ -1,84 +1,100 @@
 movies:
   Arnaques Crimes Et Botanique:
-    description: "Eddy, un joueur invétéré, s'apprête à participer à la plus grosse partie de cartes de sa vie avec un enjeu de cent mille livres, somme qu'il a durement amassée avec ses trois acolytes, Tom, Bacon et Soap. Eddy est considéré comme l'un des meilleurs joueurs du circuit, mais la partie s'avère être un coup monté à l'issue duquel il doit cinq cent mille livres à son adversaire Hatchet Harry. Ce dernier lui donne une semaine pour réunir cette somme, sinon il aura les doigts coupés. Seul JD, le père d'Eddy, pourrait annuler la dette en cédant son bar à son vieux rival, Harry."
+    description: "Eddy, un joueur invétéré, s'apprête à participer à la plus grosse partie de cartes de sa vie avec un enjeu de cent mille livres, somme qu'il a durement amassée avec ses trois acolytes, Tom, Bacon et Soap."
+    content: "Eddy, un joueur invétéré, s'apprête à participer à la plus grosse partie de cartes de sa vie avec un enjeu de cent mille livres, somme qu'il a durement amassée avec ses trois acolytes, Tom, Bacon et Soap. Eddy est considéré comme l'un des meilleurs joueurs du circuit, mais la partie s'avère être un coup monté à l'issue duquel il doit cinq cent mille livres à son adversaire Hatchet Harry. Ce dernier lui donne une semaine pour réunir cette somme, sinon il aura les doigts coupés. Seul JD, le père d'Eddy, pourrait annuler la dette en cédant son bar à son vieux rival, Harry."
     date: "19981028:00:00:00"
     duration: "1h 46min"
     author: "Guy Ritchie"
   RockNRolla:
-    description: "Caïd londonien, Lenny travaille à l'ancienne. Ce qui ne l'empêche pas de savoir à qui graisser la patte et de pouvoir faire pression sur n'importe quel ministre, promoteur immobilier ou malfrat en vue. D'un simple coup de fil, Lenny est capable de soulever des montagnes. Mais comme le lui dit Archy, son fidèle lieutenant, Londres est en train de changer : les mafieux des pays de l'Est, comme les petits voyous, cherchent tous à bouleverser les règles du milieu. Désormais, c'est toute la pègre londonienne, des gros bonnets aux petits poissons, qui tente de se remplir les poches en se disputant le coup du siècle. Mais c'est Johnny Quid, rock star toxico qu'on croyait mort, qui a les cartes bien en main..."
+    description: "Caïd londonien, Lenny travaille à l'ancienne. Ce qui ne l'empêche pas de savoir à qui graisser la patte et de pouvoir faire pression sur n'importe quel ministre, promoteur immobilier ou malfrat en vue."
+    content: "Caïd londonien, Lenny travaille à l'ancienne. Ce qui ne l'empêche pas de savoir à qui graisser la patte et de pouvoir faire pression sur n'importe quel ministre, promoteur immobilier ou malfrat en vue. D'un simple coup de fil, Lenny est capable de soulever des montagnes. Mais comme le lui dit Archy, son fidèle lieutenant, Londres est en train de changer : les mafieux des pays de l'Est, comme les petits voyous, cherchent tous à bouleverser les règles du milieu. Désormais, c'est toute la pègre londonienne, des gros bonnets aux petits poissons, qui tente de se remplir les poches en se disputant le coup du siècle. Mais c'est Johnny Quid, rock star toxico qu'on croyait mort, qui a les cartes bien en main..."
     date: "20081119:00:00:00"
     duration: "1h 54min"
     author: "Guy Ritchie"
   Snatch:
-    description: "Franky vient de voler un énorme diamant qu'il doit livrer à Avi, un mafieux new-yorkais. En chemin, il fait escale à Londres où il se laisse convaincre par Boris de parier sur un combat de boxe clandestin. Il ignore, bien sûr, qu'il s'agit d'un coup monté avec Vinny et Sol, afin de le délester de son magnifique caillou. Turkish et Tommy, eux, ont un problème avec leur boxeur, un gitan complètement fêlé qui refuse de se coucher au quatrième round comme prévu. C'est au tour d'Avi de débarquer, bien décidé à récupérer son bien, avec l'aide de Tony, une légende de la gâchette."
+    description: "Franky vient de voler un énorme diamant qu'il doit livrer à Avi, un mafieux new-yorkais. En chemin, il fait escale à Londres où il se laisse convaincre par Boris de parier sur un combat de boxe clandestin."
+    content: "Franky vient de voler un énorme diamant qu'il doit livrer à Avi, un mafieux new-yorkais. En chemin, il fait escale à Londres où il se laisse convaincre par Boris de parier sur un combat de boxe clandestin. Il ignore, bien sûr, qu'il s'agit d'un coup monté avec Vinny et Sol, afin de le délester de son magnifique caillou. Turkish et Tommy, eux, ont un problème avec leur boxeur, un gitan complètement fêlé qui refuse de se coucher au quatrième round comme prévu. C'est au tour d'Avi de débarquer, bien décidé à récupérer son bien, avec l'aide de Tony, une légende de la gâchette."
     date: "20001115:00:00:00"
     duration: "1h 43min"
     author: "Guy Ritchie"
   Arrete moi si tu peux:
-    description: "Dans les années soixante, le jeune Frank Abagnale Jr. est passé maître dans l'art de l'escroquerie, allant jusqu'à détourner 2,5 millions de dollars et à figurer sur les listes du FBI comme l'un des dix individus les plus recherchés des Etats-Unis. Véritable caméléon, Frank revêt des identités aussi diverses que celles de pilote de ligne, de médecin, de professeur d'université ou encore d'assistant du procureur. Carl Hanratty, agent du FBI à l'apparence stricte, fait de la traque de Frank Abagnale Jr. sa mission prioritaire, mais ce dernier reste pendant longtemps insaisissable..."
+    description: "Dans les années soixante, le jeune Frank Abagnale Jr. est passé maître dans l'art de l'escroquerie, allant jusqu'à détourner 2,5 millions de dollars et à figurer sur les listes du FBI comme l'un des dix individus les plus recherchés des Etats-Unis."
+    content: "Dans les années soixante, le jeune Frank Abagnale Jr. est passé maître dans l'art de l'escroquerie, allant jusqu'à détourner 2,5 millions de dollars et à figurer sur les listes du FBI comme l'un des dix individus les plus recherchés des Etats-Unis. Véritable caméléon, Frank revêt des identités aussi diverses que celles de pilote de ligne, de médecin, de professeur d'université ou encore d'assistant du procureur. Carl Hanratty, agent du FBI à l'apparence stricte, fait de la traque de Frank Abagnale Jr. sa mission prioritaire, mais ce dernier reste pendant longtemps insaisissable..."
     date: "20030212:00:00:00"
     duration: "2h 21min"
     author: "Steven Spielberg"
   Fight Club:
-    description: "Le narrateur, sans identité précise, vit seul, travaille seul, dort seul, mange seul ses plateaux-repas pour une personne comme beaucoup d'autres personnes seules qui connaissent la misère humaine, morale et sexuelle. C'est pourquoi il va devenir membre du Fight club, un lieu clandestin ou il va pouvoir retrouver sa virilité, l'échange et la communication. Ce club est dirigé par Tyler Durden, une sorte d'anarchiste entre gourou et philosophe qui prêche l'amour de son prochain."
+    description: "Le narrateur, sans identité précise, vit seul, travaille seul, dort seul, mange seul ses plateaux-repas pour une personne comme beaucoup d'autres personnes seules qui connaissent la misère humaine, morale et sexuelle."
+    content: "Le narrateur, sans identité précise, vit seul, travaille seul, dort seul, mange seul ses plateaux-repas pour une personne comme beaucoup d'autres personnes seules qui connaissent la misère humaine, morale et sexuelle. C'est pourquoi il va devenir membre du Fight club, un lieu clandestin ou il va pouvoir retrouver sa virilité, l'échange et la communication. Ce club est dirigé par Tyler Durden, une sorte d'anarchiste entre gourou et philosophe qui prêche l'amour de son prochain."
     date: "20190515:00:00:00"
     duration: "2h 19min"
     author: "David Fincher"
   Forrest Gump:
     description: "Quelques décennies d'histoire américaine, des années 1940 à la fin du XXème siècle, à travers le regard et l'étrange odyssée d'un homme simple et pur, Forrest Gump."
+    content: "Quelques décennies d'histoire américaine, des années 1940 à la fin du XXème siècle, à travers le regard et l'étrange odyssée d'un homme simple et pur, Forrest Gump."
     date: "19941005:00:00:00"
     duration: "2h 20min"
     author: "Robert Zemeckis"
   La ligne verte:
-    description: "Paul Edgecomb, pensionnaire centenaire d'une maison de retraite, est hanté par ses souvenirs. Gardien-chef du pénitencier de Cold Mountain en 1935, il était chargé de veiller au bon déroulement des exécutions capitales en s’efforçant d'adoucir les derniers moments des condamnés. Parmi eux se trouvait un colosse du nom de John Coffey, accusé du viol et du meurtre de deux fillettes. Intrigué par cet homme candide et timide aux dons magiques, Edgecomb va tisser avec lui des liens très forts."
+    description: "Paul Edgecomb, pensionnaire centenaire d'une maison de retraite, est hanté par ses souvenirs. Gardien-chef du pénitencier de Cold Mountain en 1935, il était chargé de veiller au bon déroulement des exécutions capitales en s’efforçant d'adoucir les derniers moments des condamnés."
+    content: "Paul Edgecomb, pensionnaire centenaire d'une maison de retraite, est hanté par ses souvenirs. Gardien-chef du pénitencier de Cold Mountain en 1935, il était chargé de veiller au bon déroulement des exécutions capitales en s’efforçant d'adoucir les derniers moments des condamnés. Parmi eux se trouvait un colosse du nom de John Coffey, accusé du viol et du meurtre de deux fillettes. Intrigué par cet homme candide et timide aux dons magiques, Edgecomb va tisser avec lui des liens très forts."
     date: "20000301:00:00:00"
     duration: "3h 09min"
     author: "Frank Darabont"
   La vie est belle:
-    description: "Le décès de son père oblige un homme à reprendre l'entreprise familiale de prêts à la construction, qui permet aux plus déshérités de se loger. Il entre en conflit avec l'homme le plus riche de la ville, qui tente de ruiner ses efforts. Au moment où il approche de la victoire, il égare les 8 000 dollars qu'il devait déposer en banque. Le soir de Noël, désespéré, il songe au suicide. C'est alors que le Ciel dépêche à ses côtés un ange de seconde classe, qui pour gagner ses ailes devra l'aider à sortir de cette mauvaise passe..."
+    description: "Le décès de son père oblige un homme à reprendre l'entreprise familiale de prêts à la construction, qui permet aux plus déshérités de se loger. Il entre en conflit avec l'homme le plus riche de la ville, qui tente de ruiner ses efforts."
+    content: "Le décès de son père oblige un homme à reprendre l'entreprise familiale de prêts à la construction, qui permet aux plus déshérités de se loger. Il entre en conflit avec l'homme le plus riche de la ville, qui tente de ruiner ses efforts. Au moment où il approche de la victoire, il égare les 8 000 dollars qu'il devait déposer en banque. Le soir de Noël, désespéré, il songe au suicide. C'est alors que le Ciel dépêche à ses côtés un ange de seconde classe, qui pour gagner ses ailes devra l'aider à sortir de cette mauvaise passe..."
     date: "19471210:00:00:00"
     duration: "2h 09min"
     author: "Frank Capra"
   Le Parrain:
-    description: "En 1945, à New York, les Corleone sont une des cinq familles de la mafia. Don Vito Corleone, parrain de cette famille, marie sa fille à un bookmaker. Sollozzo, parrain de la famille Tattaglia, propose à Don Vito une association dans le trafic de drogue, mais celui-ci refuse. Sonny, un de ses fils, y est quant à lui favorable.
+    description: "En 1945, à New York, les Corleone sont une des cinq familles de la mafia. Don Vito Corleone, parrain de cette famille, marie sa fille à un bookmaker. Sollozzo, parrain de la famille Tattaglia, propose à Don Vito une association dans le trafic de drogue, mais celui-ci refuse."
+    content: "En 1945, à New York, les Corleone sont une des cinq familles de la mafia. Don Vito Corleone, parrain de cette famille, marie sa fille à un bookmaker. Sollozzo, parrain de la famille Tattaglia, propose à Don Vito une association dans le trafic de drogue, mais celui-ci refuse. Sonny, un de ses fils, y est quant à lui favorable.
                    Afin de traiter avec Sonny, Sollozzo tente de faire tuer Don Vito, mais celui-ci en réchappe. Michael, le frère cadet de Sonny, recherche alors les commanditaires de l'attentat et tue Sollozzo et le chef de la police, en représailles.
                    Michael part alors en Sicile, où il épouse Apollonia, mais celle-ci est assassinée à sa place. De retour à New York, Michael épouse Kay Adams et se prépare à devenir le successeur de son père..."
     date: "20130918:00:00:00"
     duration: "2h 55min"
     author: "Francis Ford Coppola"
   Le Silence des Agneaux:
-    description: "Un psychopathe connu sous le nom de Buffalo Bill sème la terreur dans le Middle West en kidnappant et en assassinant de jeunes femmes. Clarice Starling, une jeune agent du FBI, est chargée d'interroger l'ex-psychiatre Hannibal Lecter. Psychopathe redoutablement intelligent et porté sur le cannibalisme, Lecter est capable de lui fournir des informations concernant Buffalo Bill ainsi que son portrait psychologique. Mais il n'accepte de l'aider qu'en échange d'informations sur la vie privée de la jeune femme. Entre eux s'établit un lien de fascination et de répulsion."
+    description: "Un psychopathe connu sous le nom de Buffalo Bill sème la terreur dans le Middle West en kidnappant et en assassinant de jeunes femmes. Clarice Starling, une jeune agent du FBI, est chargée d'interroger l'ex-psychiatre Hannibal Lecter."
+    content: "Un psychopathe connu sous le nom de Buffalo Bill sème la terreur dans le Middle West en kidnappant et en assassinant de jeunes femmes. Clarice Starling, une jeune agent du FBI, est chargée d'interroger l'ex-psychiatre Hannibal Lecter. Psychopathe redoutablement intelligent et porté sur le cannibalisme, Lecter est capable de lui fournir des informations concernant Buffalo Bill ainsi que son portrait psychologique. Mais il n'accepte de l'aider qu'en échange d'informations sur la vie privée de la jeune femme. Entre eux s'établit un lien de fascination et de répulsion."
     date: "19910410:00:00:00"
     duration: "1h 58min"
     author: "Jonathan Demme"
   Pulp Fiction:
     description: "L'odyssée sanglante et burlesque de petits malfrats dans la jungle de Hollywood à travers trois histoires qui s'entremêlent."
+    content: "L'odyssée sanglante et burlesque de petits malfrats dans la jungle de Hollywood à travers trois histoires qui s'entremêlent."
     date: "19941026:00:00:00"
     duration: "2h 29min"
     author: "Quentin Tarantino"
   Reservoir Dogs:
     description: "Après un hold-up manqué, des cambrioleurs de haut vol font leurs comptes dans une confrontation violente, pour découvrir lequel d'entre eux les a trahis."
+    content: "Après un hold-up manqué, des cambrioleurs de haut vol font leurs comptes dans une confrontation violente, pour découvrir lequel d'entre eux les a trahis."
     date: "19920902:00:00:00"
     duration: "1h 39min"
     author: "Quentin Tarantino"
   Seven:
-    description: "Pour conclure sa carrière, l'inspecteur Somerset, vieux flic blasé, tombe à sept jours de la retraite sur un criminel peu ordinaire. John Doe, c'est ainsi que se fait appeler l'assassin, a decidé de nettoyer la societé des maux qui la rongent en commettant sept meurtres basés sur les sept pechés capitaux: la gourmandise, l'avarice, la paresse, l'orgueil, la luxure, l'envie et la colère."
+    description: "Pour conclure sa carrière, l'inspecteur Somerset, vieux flic blasé, tombe à sept jours de la retraite sur un criminel peu ordinaire."
+    content: "Pour conclure sa carrière, l'inspecteur Somerset, vieux flic blasé, tombe à sept jours de la retraite sur un criminel peu ordinaire. John Doe, c'est ainsi que se fait appeler l'assassin, a decidé de nettoyer la societé des maux qui la rongent en commettant sept meurtres basés sur les sept pechés capitaux: la gourmandise, l'avarice, la paresse, l'orgueil, la luxure, l'envie et la colère."
     date: "19960131:00:00:00"
     duration: "2h 10min"
     author: "David Fincher"
   Heat:
-    description: "La bande de Neil McCauley à laquelle est venu se greffer Waingro, une nouvelle recrue, attaque un fourgon blindé pour s'emparer d'une somme importante en obligations. Cependant, ce dernier tue froidement l'un des convoyeurs et Chris Shiherlis se retrouve obligé de terminer le travail. Neil tente d'éliminer Waingro, mais celui-ci parvient à s'échapper. Parallèlement, le lieutenant Vincent Hanna mène l'enquête..."
+    description: "La bande de Neil McCauley à laquelle est venu se greffer Waingro, une nouvelle recrue, attaque un fourgon blindé pour s'emparer d'une somme importante en obligations."
+    content: "La bande de Neil McCauley à laquelle est venu se greffer Waingro, une nouvelle recrue, attaque un fourgon blindé pour s'emparer d'une somme importante en obligations. Cependant, ce dernier tue froidement l'un des convoyeurs et Chris Shiherlis se retrouve obligé de terminer le travail. Neil tente d'éliminer Waingro, mais celui-ci parvient à s'échapper. Parallèlement, le lieutenant Vincent Hanna mène l'enquête..."
     date: "19960221:00:00:00"
     duration: "2h 50min"
     author: "Michael Mann"
   Inglourious Basterds:
-    description: "Dans la France occupée de 1940, Shosanna Dreyfus assiste à l'exécution de sa famille tombée entre les mains du colonel nazi Hans Landa. Shosanna s'échappe de justesse et s'enfuit à Paris où elle se construit une nouvelle identité en devenant exploitante d'une salle de cinéma.
+    description: "Dans la France occupée de 1940, Shosanna Dreyfus assiste à l'exécution de sa famille tombée entre les mains du colonel nazi Hans Landa. Shosanna s'échappe de justesse et s'enfuit à Paris où elle se construit une nouvelle identité en devenant exploitante d'une salle de cinéma."
+    content: "Dans la France occupée de 1940, Shosanna Dreyfus assiste à l'exécution de sa famille tombée entre les mains du colonel nazi Hans Landa. Shosanna s'échappe de justesse et s'enfuit à Paris où elle se construit une nouvelle identité en devenant exploitante d'une salle de cinéma.
                   Quelque part ailleurs en Europe, le lieutenant Aldo Raine forme un groupe de soldats juifs américains pour mener des actions punitives particulièrement sanglantes contre les nazis. Les bâtards, nom sous lequel leurs ennemis vont apprendre à les connaître, se joignent à l'actrice allemande et agent secret Bridget von Hammersmark pour tenter d'éliminer les hauts dignitaires du Troisième Reich. Leurs destins vont se jouer à l'entrée du cinéma où Shosanna est décidée à mettre à exécution une vengeance très personnelle..."
     date: "20090819:00:00:00"
     duration: "2h 33min"
     author: "Quentin Tarantino"
   Inside Man:
-    description: "Ce devait être le hold-up parfait, le chef-d'oeuvre d'un génie du crime.
+    description: "Ce devait être le hold-up parfait, le chef-d'oeuvre d'un génie du crime. Le décor : une grande banque de Manhattan. Les protagonistes : un commando masqué, cagoulé, lunetté et des dizaines d'otages affolés, contraints de revêtir la même combinaison passe-partout que les braqueurs."
+    content: "Ce devait être le hold-up parfait, le chef-d'oeuvre d'un génie du crime.
                   Le décor : une grande banque de Manhattan. Les protagonistes : un commando masqué, cagoulé, lunetté et des dizaines d'otages affolés, contraints de revêtir la même combinaison passe-partout que les braqueurs.
                   L'enjeu : la salle des coffres et ses trésors ? Ou un vieux secret dont seuls deux personnes connaissent l'importance.
                   Aujourd'hui, confiné dans une cellule, le cerveau de la bande s'explique. Mais attention, chaque mot compte, et aucun indice ne vous sera livré au hasard. Prêts ?

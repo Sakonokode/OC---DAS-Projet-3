@@ -1,0 +1,58 @@
+{% extends 'layouts/base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="{{ asset('build/movies-styles.css') }}">
+{% endblock %}
+
+{% block page %}
+    <div class="pusher">
+        <div class="ui inverted vertical masthead center aligned segment">
+            <div class="ui container">
+                <div class="ui large secondary inverted pointing menu">
+                    <a class="item" href="{{ path('home') }}">Accueil</a>
+                    <a class="item" href="{{ path('movies') }}">Films a l'affiche</a>
+                    <a class="item">A propos de nous</a>
+                    <div class="right item">
+                        <a class="ui inverted button" href="{{ path('login') }}">Connection</a>
+                        <a class="ui inverted button">Inscription</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ui four column grid">
+            <div class="row">
+                {% for movie in movies %}
+                    <div class="column">
+                        <div class="ui link cards">
+                            <div class="card">
+                                <div class="image">
+                                    <img alt="{{ movie.title }}" src="{{ asset('img/' ~ movie.title ~ '.jpg') }}">
+                                </div>
+                                <div class="content">
+                                    <div class="header">{{ movie.title }}</div>
+                                    <div class="meta">{{ movie.author }}</div>
+                                    <div class="description">{{ movie.description }}</div>
+                                    <div class="extra content">
+                                        <span class="right floated">
+                                            <button class="ui button primary"></button>
+                                        </span>
+                                        <span>
+                                            <i class="clock outline icon"></i>
+                                            {{ movie.duration }}
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('build/movies-styles.js') }}"></script>
+{% endblock %}
