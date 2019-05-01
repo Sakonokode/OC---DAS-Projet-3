@@ -1,12 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+        {% block header %}{% endblock %}
+        {% block body %}
+            {% block page %}
+
+            {% endblock %}
+        {% endblock %}
+        {% block footer %}
+        {% endblock %}
+
         {% block javascripts %}{% endblock %}
     </body>
 </html>
