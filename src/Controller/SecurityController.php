@@ -27,6 +27,7 @@ class SecurityController extends AbstractController
         AuthenticationUtils $authenticationUtils
     ): Response {
 
+        #dd($authenticationUtils->getLastUsername());
         // if user is already logged in, don't display the login page again
         if ($security->isGranted('ROLE_USER')) {
             return $this->redirectToRoute('home');

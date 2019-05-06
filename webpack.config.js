@@ -19,6 +19,9 @@ Encore
      */
     .addEntry('app', './assets/js/app.js')
     .addEntry('movies-styles', './assets/css/movies.css')
+    .addEntry('login-styles', './assets/css/login.css')
+    .addEntry('home-styles', './assets/css/home.css')
+    .addEntry('register-styles', './assets/css/register.css')
     //.addEntry('page1', './assets/js/page1.js')
     //.addEntry('page2', './assets/js/page2.js')
 

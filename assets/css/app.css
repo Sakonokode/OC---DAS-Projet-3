@@ -13,3 +13,7 @@
 .ui.vertical.stripe {
     padding: 8em 0em;
 }
+
+.ui.inverted.segment, .ui.primary.inverted.segment {
+    background: #009C95 !important;
+}
