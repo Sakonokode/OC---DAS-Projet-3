@@ -5,8 +5,10 @@ namespace App\DataFixtures;
 
 
 use App\Entity\Movie;
+use DateTime;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
+use Exception;
 use Symfony\Component\Yaml\Yaml;
 
 /**
@@ -15,14 +17,22 @@ use Symfony\Component\Yaml\Yaml;
  */
 class MovieFixtures extends Fixture
 {
-
+    /**
+     * @param ObjectManager $manager
+     * @throws Exception
+     */
     public function load(ObjectManager $manager): void
     {
         $movies = Yaml::parseFile(__DIR__ . '/fixtures/movies.yaml');
 
         foreach ($movies['movies'] as $title => $movie) {
-
-            $movie = $this->instantiate($movie['description'], $movie['date'], $movie['duration'], $movie['author'], $movie['content'], $title);
+            $movie = $this->instantiate(
+                $movie['description'],
+                $movie['date'],
+                $movie['duration'],
+                $movie['author'],
+                $movie['content'],
+                $title);
             $manager->persist($movie);
         }
 
@@ -37,6 +47,7 @@ class MovieFixtures extends Fixture
      * @param string $content
      * @param string|null $title
      * @return Movie
+     * @throws Exception
      */
     public function instantiate(
         string $description,
@@ -50,7 +61,7 @@ class MovieFixtures extends Fixture
         $movie = new Movie();
         $movie->setDescription($description);
         #$movie->setDate($dateTime);
-        $test = \DateTime::createFromFormat('Ymd:H:i:s', $date);
+        $test = new DateTime($date . ' 00:00:00');
         $movie->setDate($test);
         $movie->setDuration($duration);
         $movie->setAuthor($author);

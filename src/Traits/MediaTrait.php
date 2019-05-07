@@ -3,8 +3,7 @@
 
 namespace App\Traits;
 
-use App\Entity\User;
-use Doctrine\Common\Collections\ArrayCollection;
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -17,7 +16,7 @@ trait MediaTrait
     use DescribableTrait;
 
     /**
-     * @var null|\DateTime $date
+     * @var null|DateTime $date
      * @ORM\Column(type="datetime", length=255, nullable=true)
      */
     protected $date;
@@ -28,17 +27,17 @@ trait MediaTrait
     protected $duration;
 
     /**
-     * @return \DateTime|null
+     * @return DateTime|null
      */
-    public function getDate(): ?\DateTime
+    public function getDate(): ?DateTime
     {
         return $this->date;
     }
 
     /**
-     * @param \DateTime|null $date
+     * @param DateTime|null $date
      */
-    public function setDate(?\DateTime $date): void
+    public function setDate(?DateTime $date): void
     {
         $this->date = $date;
     }
