@@ -9,48 +9,39 @@
     <div class="pusher">
         <div class="ui inverted vertical masthead center aligned segment">
             <div class="ui container">
-                <div class="ui large secondary inverted pointing menu">
-                    <a class="item" href="{{ path('home') }}">Accueil</a>
-                    <a class="item" href="{{ path('movies') }}">Films a l'affiche</a>
-                    <a class="item">A propos de nous</a>
-                    <div class="right item">
-                        {% if app.user %}
-                            <a class="ui inverted button" href="{{ path('logout') }}">Deconnection</a>
-                        {% else %}
-                            <a class="ui inverted button" href="{{ path('login') }}">Connection</a>
-                            <a class="ui inverted button">Inscription</a>
-                        {% endif %}
-                    </div>
-                </div>
+                {% include 'includes/menu.html.twig' %}
             </div>
         </div>
-        <div class="ui four column grid">
-            <div class="row">
-                {% for movie in movies %}
-                    <div class="column">
-                        <div class="ui link cards">
-                            <div class="card">
-                                <div class="image">
-                                    <img alt="{{ movie.title }}" src="{{ asset('img/' ~ movie.title ~ '.jpg') }}">
-                                </div>
-                                <div class="content">
-                                    <div class="header">{{ movie.title }}</div>
-                                    <div class="meta">{{ movie.author }}</div>
-                                    <div class="description">{{ movie.description }}</div>
-                                    <div class="extra content">
-                                        <span class="right floated">
-                                            <button class="ui button primary"></button>
-                                        </span>
-                                        <span>
-                                            <i class="clock outline icon"></i>
-                                            {{ movie.duration }}
-                                        </span>
+        <div id="background">
+            <div class="ui four column grid">
+                <div class="row">
+                    {% for movie in movies %}
+                        <div class="column">
+                            <div class="ui link cards">
+                                <div class="card">
+                                    <div class="image">
+                                        <img alt="{{ movie.title }}"
+                                             src="{{ asset('img/' ~ movie.title ~ '.jpg') }}">
+                                    </div>
+                                    <div class="content">
+                                        <div class="header">{{ movie.title }}</div>
+                                        <div class="meta">{{ movie.author }}</div>
+                                        <div class="description">{{ movie.description }}</div>
+                                        <div class="extra content">
+                                            <span class="right floated">
+                                                <a class="ui button primary" href="{{ path('play', {'slug': movie.slug}) }}">Plus</a>
+                                            </span>
+                                            <span class="left floated">
+                                                <i class="clock outline icon"></i>
+                                                {{ movie.duration }}
+                                            </span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                {% endfor %}
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </div>

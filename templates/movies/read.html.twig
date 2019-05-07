@@ -1,0 +1,36 @@
+{% extends 'layouts/base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {#<link rel="stylesheet" type="text/css" href="{{ asset('build/movies-styles.css') }}">#}
+{% endblock %}
+
+{% block page %}
+    <div class="pusher">
+        <div class="ui inverted vertical masthead center aligned segment">
+            <div class="ui container">
+                {% include 'includes/menu.html.twig' %}
+            </div>
+        </div>
+        <div id="background">
+            <div class="ui internally celled grid">
+                <div class="row">
+                    <div class="three wide column">
+                        <img src="{{ asset('img/' ~ media.title ~ '.jpg') }}">
+                    </div>
+                    <div class="ten wide column">
+                        <h2>{{ media.title }}</h2>
+                        <p>{{ media.content }}</p>
+                    </div>
+                    <div class="three wide column">
+                        <img src="https://via.placeholder.com/150x100" class="ui large bordered rounded image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}

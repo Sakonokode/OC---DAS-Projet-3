@@ -22,7 +22,7 @@ class MovieFixtures extends Fixture
 
         foreach ($movies['movies'] as $title => $movie) {
 
-            $movie = $this->instantiate($movie['description'], $movie['date'], $movie['duration'], $movie['author'], $title);
+            $movie = $this->instantiate($movie['description'], $movie['date'], $movie['duration'], $movie['author'], $movie['content'], $title);
             $manager->persist($movie);
         }
 
@@ -34,6 +34,7 @@ class MovieFixtures extends Fixture
      * @param string $date
      * @param string $duration
      * @param string $author
+     * @param string $content
      * @param string|null $title
      * @return Movie
      */
@@ -42,6 +43,7 @@ class MovieFixtures extends Fixture
         string $date,
         string $duration,
         string $author,
+        string $content,
         string $title = null
     ): Movie
     {
@@ -52,6 +54,7 @@ class MovieFixtures extends Fixture
         $movie->setDate($test);
         $movie->setDuration($duration);
         $movie->setAuthor($author);
+        $movie->setContent($content);
         $movie->setTitle($title);
         return $movie;
     }

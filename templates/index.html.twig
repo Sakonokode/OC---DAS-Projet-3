@@ -9,38 +9,35 @@
     <div class="pusher">
         <div class="ui inverted vertical masthead center aligned segment">
             <div class="ui container">
-                <div class="ui large secondary inverted pointing menu">
-                    <a class="item" href="{{ path('home') }}">Accueil</a>
-                    <a class="item" href="{{ path('movies') }}">Films a l'affiche</a>
-                    <a class="item">A propos de nous</a>
-                    <div class="right item">
-                        {% if app.user %}
-                            <a class="ui inverted button" href="{{ path('logout') }}">Deconnection</a>
-                            {{ app.user.email }}
-                        {% else %}
-                            <a class="ui inverted button" href="{{ path('login') }}">Connection</a>
-                            <a class="ui inverted button" href="{{ path('user_registration') }}">Inscription</a>
-                        {% endif %}
+                {% include 'includes/menu.html.twig' %}
+            </div>
+        </div>
+        <div class="ui inverted vertical masthead center aligned segment" id="background">
+            <div class="ui container">
+                <div class="ui text container">
+                    <h1 class="ui inverted header">Festival films en plein air</h1>
+                    <h2>Venez consulter notre selection de films</h2>
+                    <div class="ui text container">
+                        <a class="ui huge primary button" href="{{ path('movies') }}">
+                            Plus d'infos
+                            <i class="right arrow icon"></i>
+                        </a>
                     </div>
                 </div>
             </div>
-            <div class="ui text container">
-                <h1 class="ui inverted header">Festival films plein air</h1>
-                <h2>Venez consulter notre selection de films</h2>
-                <div class="ui huge primary button">Plus d'infos
-                    <i class="right arrow icon"></i>
-                </div>
-            </div>
         </div>
+
         <div class="ui vertical stripe segment">
             <div class="ui middle aligned stackable grid container">
                 <div class="row">
                     <div class="eight wide column">
                         <h3 class="ui header">We Help Companies and Companions</h3>
-                        <p>We can give your company superpowers to do things that they never thought possible. Let us delight your customers and empower your needs...through pure data analytics.
+                        <p>We can give your company superpowers to do things that they never thought possible. Let us
+                            delight your customers and empower your needs...through pure data analytics.
                         </p>
                         <h3 class="ui header">We Make Bananas That Can Dance</h3>
-                        <p>Yes that's right, you thought it was the stuff of dreams, but even bananas can be bioengineered.
+                        <p>Yes that's right, you thought it was the stuff of dreams, but even bananas can be
+                            bioengineered.
                         </p>
                     </div>
                     <div class="six wide right floated column">
@@ -64,7 +61,8 @@
                     <div class="column">
                         <h3>"I shouldn't have gone with their competitor."</h3>
                         <p>
-                            <img src="assets/images/avatar/nan.jpg" class="ui avatar image"> <b>Nan</b> Chief Fun Officer Acme Toys
+                            <img src="assets/images/avatar/nan.jpg" class="ui avatar image"> <b>Nan</b> Chief Fun
+                            Officer Acme Toys
                         </p>
                     </div>
                 </div>

@@ -1,8 +1,21 @@
-.masthead.segment {
-    min-height: 700px;
-    padding: 1em 0em;
-}
+
 
 .ui.inverted.button {
     margin-right: 20px !important;
+}
+
+#background {
+    background-image: linear-gradient(
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)
+    ), url('http://www.smart-magazine.com/content/uploads/2017/07/zurich-allianz-cinema.jpg') !important;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 50%;
+    min-height: 800px;
+}
+
+.top-menu-container {
+    background: #1b1c1d;
 }
