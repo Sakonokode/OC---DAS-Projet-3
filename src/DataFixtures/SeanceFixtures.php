@@ -45,16 +45,16 @@ class SeanceFixtures extends Fixture
         $movies = $repository->findAll();
         $now = new DateTime('now');
 
-        /** @var Movie $movie */
-        foreach ($movies as $movie) {
-            for ($day = 8; $day <= 10; $day++) {
+        for ($day = 8; $day <= 10; $day++) {
+            /** @var Movie $movie */
+            foreach ($movies as $movie) {
                 /** @var Seance $seance */
                 foreach ($seances as $data) {
                     foreach ($data['hours'] as $hour) {
                         $seance = new Seance();
                         $seance->setMedia($movie);
                         $seance->setMaxSubscriptions($data['maxSubscriptions']);
-                        $date = new DateTime($day . '-' . $now->format('m-Y').' '.$hour);
+                        $date = new DateTime($day . '-' . $now->format('m-Y') . ' ' . $hour);
                         $seance->setDate($date);
                         $this->manager->persist($seance);
                     }

@@ -44,10 +44,12 @@ class SeanceRepository extends ServiceEntityRepository
         dump($start, $end);
 
         $qb = $this->createQueryBuilder('s');
-        $qb->where('s.date > :start and s.date < :end')->setParameters([
-            'start' => $start,
-            'end' => $end
-        ]);
+        $qb
+            ->where('s.date >= :start and s.date < :end')
+            ->setParameters([
+                'start' => $start,
+                'end' => $end
+            ]);
 
         return $qb->getQuery()->getResult();
     }
