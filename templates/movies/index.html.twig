@@ -51,13 +51,12 @@
                                             {% if seance.totalSubscriptions > 0 %}
                                                 {% set subscriptionPercent = (seance.totalSubscriptions * 100) / seance.maxSubscriptions | round %}
                                             {% endif %}
+                                            {{ dump(subscriptionPercent) }}
                                             <div class="ui yellow progress progress-bar"
                                                  data-percent="{{ subscriptionPercent }}">
                                                 <div class="bar">
-                                                    <div class="progress"></div>
                                                 </div>
                                             </div>
-                                            {{ dump(subscriptionPercent) }}
                                         {% endif %}
                                         <div class="extra content">
                                             <span class="left floated">
@@ -89,6 +88,6 @@
     <script src="{{ asset('build/movies-styles.js') }}"></script>
     <script src="{{ asset('build/movies.js') }}"></script>
     <script src="{{ asset('build/subscriptions.js') }}"></script>
-    <script src="{{ asset('build/vendors~subscriptions.js') }}"></script>
-    <script src="{{ asset('build/vendors~app~movies~subscriptions.js') }}"></script>
+    <script src="{{ asset('build/progress.js') }}"></script>
+    <script src="{{ asset('build/vendors~progress~subscriptions.js') }}"></script>
 {% endblock %}

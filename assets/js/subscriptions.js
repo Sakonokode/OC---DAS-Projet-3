@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import ProgressBar from './progress_bar';
 
 class SubscriptionButton extends React.Component {
 
@@ -32,13 +33,10 @@ class SubscriptionButton extends React.Component {
             const isSubscribed = this.state.isSubscribed;
             const dataSeance = this.state.dataSeance;
 
-            this.setState({dataSeance : dataSeance});
+            this.setState({dataSeance: dataSeance});
             this.setState({isSubscribed: !isSubscribed});
-            console.log(this.setState({isSubscribed: !isSubscribed}));
-            console.log('subscribe');
-        }
 
-        else {
+        } else {
 
             const str = "/seance/";
             const str1 = str.concat(this.state.dataSeance);
@@ -58,16 +56,16 @@ class SubscriptionButton extends React.Component {
             const isSubscribed = this.state.isSubscribed;
             const dataSeance = this.state.dataSeance;
 
-            this.setState({dataSeance : dataSeance});
+            this.setState({dataSeance: dataSeance});
             this.setState({isSubscribed: !isSubscribed});
-            console.log('unsubscribe');
         }
 
     };
 
     render() {
         return (
-            <button className={this.state.isSubscribed ? "ui button red bottom attached button btn-more-detail" : "ui button green bottom attached button btn-more-detail"}
+            <button className={this.state.isSubscribed ? "ui button red bottom attached button btn-more-detail" :
+                "ui button green bottom attached button btn-more-detail"}
                     onClick={this.handleClick}>
                 <i className={this.state.isSubscribed ? "minus icon" : "add icon"}/>
                 &nbsp;
@@ -80,5 +78,10 @@ class SubscriptionButton extends React.Component {
 document.querySelectorAll('span.react-subscription').forEach(function (span) {
     const isSubscribed = span.dataset.isSubscribed;
     const dataSeance = +span.dataset.seance;
-    ReactDOM.render(<SubscriptionButton isSubscribed={isSubscribed} dataSeance={dataSeance} />, span);
+    ReactDOM.render(<SubscriptionButton isSubscribed={isSubscribed} dataSeance={dataSeance}/>, span);
+});
+
+document.querySelectorAll('div.progress-bar').forEach(function (div) {
+    const percent = div.dataset.percent;
+    ReactDOM.render(<ProgressBar percent={percent}/>, div);
 });

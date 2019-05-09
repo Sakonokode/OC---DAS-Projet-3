@@ -4,4 +4,4 @@ seances:
     - "20:00:00"
     - "22:00:00"
     - "00:00:00"
-  maxSubscriptions: 200
+  maxSubscriptions: 5
