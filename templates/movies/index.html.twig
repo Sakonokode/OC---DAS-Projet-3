@@ -15,39 +15,63 @@
         <div id="background">
             <div class="ui four column grid">
                 <div class="row">
-                    {% for seance in seances %}
+                    {% for movie in movies %}
                         <div class="column">
-                            <div class="ui link cards">
+                            <div class="ui cards">
                                 <div class="card">
                                     <div class="image">
-                                        <img alt="{{ seance.media.title }}"
-                                             src="{{ asset('img/' ~ seance.media.title ~ '.jpg') }}">
+                                        <img alt="{{ movie.title }}"
+                                             src="{{ asset('img/' ~ movie.title ~ '.jpg') }}">
                                     </div>
                                     <div class="content">
-                                        <div class="header">{{ seance.media.title }}</div>
-                                        <div class="meta">{{ seance.media.author }}</div>
-                                        <div class="description">{{ seance.media.description }}</div>
-                                        <a class="ui button primary bottom attached button btn-more-detail" href="{{ path('play', {'slug': seance.media.slug}) }}">
-                                            <i class="add icon"></i>
+                                        <div class="header">{{ movie.title }}</div>
+                                        <div class="meta">{{ movie.author }}</div>
+                                        <div class="description">{{ movie.content }}</div>
+                                        <a class="ui button primary bottom attached button btn-more-detail"
+                                           href="{{ path('app_read', {'slug': movie.slug}) }}">
+                                            <i class="eye icon"></i>
                                             Plus d'infos
                                         </a>
-                                        {% set subscriptionPercent = 0 %}
-                                        {% if seance.totalSubscriptions > 0 %}
-                                            {% set subscriptionPercent = seance.maxSubscriptions / seance.totalSubscriptions * 100 | round %}
+                                        {% set seance = movie | next_seance %}
+                                        {% set subscription = get_subscription(app.user, movie) %}
+                                        {% if subscription is null %}
+                                            {% set subscription = false %}
+                                            <span class="react-subscription" data-seance="{{ seance.id }}"
+                                                  data-is-subscribed="{{ subscription }}">Subscribe</span>
+                                        {% elseif subscription.active == true %}
+                                            <span class="react-subscription" data-seance="{{ seance.id }}"
+                                                  data-is-subscribed="{{ subscription.active }}">Subscribe</span>
+                                        {% elseif subscription.active == false %}
+                                            {% set subscription = false %}
+                                            <span class="react-subscription" data-seance="{{ seance.id }}"
+                                                  data-is-subscribed="{{ subscription }}">Subscribe</span>
                                         {% endif %}
-                                        <div class="ui progress progress-bar" data-percent="{{ subscriptionPercent }}">
-                                            <div class="bar">
-                                                <div class="progress"></div>
+                                        {% if seance is not null %}
+                                            {% set subscriptionPercent = 0 %}
+                                            {% if seance.totalSubscriptions > 0 %}
+                                                {% set subscriptionPercent = (seance.totalSubscriptions * 100) / seance.maxSubscriptions | round %}
+                                            {% endif %}
+                                            <div class="ui yellow progress progress-bar"
+                                                 data-percent="{{ subscriptionPercent }}">
+                                                <div class="bar">
+                                                    <div class="progress"></div>
+                                                </div>
                                             </div>
-                                        </div>
+                                            {{ dump(subscriptionPercent) }}
+                                        {% endif %}
                                         <div class="extra content">
                                             <span class="left floated">
                                                 <i class="clock outline icon"></i>
-                                                {{ seance.media.duration }}
+                                                {{ movie.duration }}
                                             </span>
-                                            <span class="right floated">
-                                                {{ seance.totalSubscriptions ~ '/' ~ seance.maxSubscriptions ~ ' Places' }}
-                                            </span>
+                                            {% if seance is not null %}
+                                                <span class="right floated">
+                                                    {{ seance.totalSubscriptions ~ '/' ~ seance.maxSubscriptions ~ ' Places' }}
+                                                </span>
+                                                <span>
+                                                    {{ seance.date | date('Y/m/d H:i') }}
+                                                </span>
+                                            {% endif %}
                                         </div>
                                     </div>
                                 </div>
@@ -64,5 +88,7 @@
     {{ parent() }}
     <script src="{{ asset('build/movies-styles.js') }}"></script>
     <script src="{{ asset('build/movies.js') }}"></script>
-    <script src="{{ asset('build/vendors~app~movies.js') }}"></script>
+    <script src="{{ asset('build/subscriptions.js') }}"></script>
+    <script src="{{ asset('build/vendors~subscriptions.js') }}"></script>
+    <script src="{{ asset('build/vendors~app~movies~subscriptions.js') }}"></script>
 {% endblock %}

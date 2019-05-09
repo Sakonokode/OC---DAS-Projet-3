@@ -23,6 +23,7 @@ Encore
     .addEntry('home-styles', './assets/css/home.css')
     .addEntry('register-styles', './assets/css/register.css')
     .addEntry('movies', './assets/js/movies.js')
+    .addEntry('subscriptions', './assets/js/subscriptions.js')
     //.addEntry('page1', './assets/js/page1.js')
     //.addEntry('page2', './assets/js/page2.js')
 

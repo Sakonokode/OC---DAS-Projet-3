@@ -8,9 +8,10 @@ use App\Entity\Seance;
 use App\Entity\Subscription;
 use App\Entity\User;
 use App\Exception\SubscriptionException;
-use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
@@ -21,15 +22,15 @@ use Symfony\Component\HttpFoundation\Response;
 final class SubscriptionService
 {
     /**
-     * @var EntityManager $manager
+     * @var EntityManagerInterface $manager
      */
     private $manager;
 
     /**
      * SubscriptionService constructor.
-     * @param EntityManager $manager
+     * @param EntityManagerInterface $manager
      */
-    public function __construct(EntityManager $manager)
+    public function __construct(EntityManagerInterface $manager)
     {
         $this->manager = $manager;
     }
@@ -39,15 +40,13 @@ final class SubscriptionService
      * @param Seance $seance
      * @return void
      * @throws SubscriptionException
-     * @throws ORMException
-     * @throws OptimisticLockException
      */
     public function subscribe(User $user, Seance $seance): void
     {
         $repository = $this->manager->getRepository(Subscription::class);
         $subscription = $repository->findOneBy([
             'user' => $user,
-            'media' => $seance->getMedia()
+            'seance' => $seance
         ]);
 
         if ($subscription === null) {
@@ -63,17 +62,23 @@ final class SubscriptionService
         $this->manager->persist($subscription);
         $this->manager->persist($seance);
         $this->manager->flush();
+        dump($subscription);
     }
 
     /**
-     * @param Subscription $subscription
+     * @param User $user
+     * @param Seance $seance
      * @return void
-     * @throws ORMException
-     * @throws OptimisticLockException
      */
-    public function unsubscribe(Subscription $subscription): void
+    public function unsubscribe(User $user, Seance $seance): void
     {
-        if ($subscription->isActive()) {
+        $repository = $this->manager->getRepository(Subscription::class);
+        $subscription = $repository->findOneBy([
+            'user' => $user,
+            'seance' => $seance
+        ]);
+
+        if ($subscription !== null && $subscription->isActive()) {
             $subscription->setActive(false);
             $subscription->getSeance()->updateTotalSubscriptions(-1);
 
@@ -81,5 +86,22 @@ final class SubscriptionService
             $this->manager->flush();
         }
 
+        dump($subscription);
+    }
+
+    /**
+     * @param User $user
+     * @param Seance $seance
+     * @return bool
+     */
+    public function isSubscribed(User $user, Seance $seance): bool
+    {
+        $repository = $this->manager->getRepository(Subscription::class);
+        $subscription = $repository->findOneBy([
+            'user' => $user,
+            'seance' => $seance
+        ]);
+
+        return $subscription !== null && $subscription->isActive();
     }
 }

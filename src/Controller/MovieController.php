@@ -5,17 +5,17 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Entity\Seance;
-use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
+use Doctrine\ORM\EntityManagerInterface;
 
 /**
- * Class SeanceController
+ * Class MovieController
  * @package App\Controller
  */
-class SeanceController extends AbstractController
+class MovieController extends AbstractController
 {
     /** @var EntityManagerInterface $entityManager */
     private $entityManager;
@@ -30,16 +30,16 @@ class SeanceController extends AbstractController
     }
 
     /**
-     * @Route("/seances", name="app_seances")
+     * @Route("/movies", name="app_movies")
      * @return Response
      * @throws Exception
      */
     public function list(): Response
     {
-        $seances = $this->entityManager->getRepository(Seance::class)->findByDate();
+        $movies = $this->entityManager->getRepository(Seance::class)->findMovies();
 
         return new Response($this->renderView('movies/index.html.twig', [
-            'seances' => $seances,
+            'movies' => $movies,
         ]));
     }
 }

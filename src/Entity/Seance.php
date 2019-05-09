@@ -124,7 +124,11 @@ class Seance
      */
     public function updateTotalSubscriptions(int $value = 1): bool
     {
-        if ($this->totalSubscriptions > 0 && $this->totalSubscriptions < $this->maxSubscriptions) {
+        if ($this->totalSubscriptions === 0 && $value === -1) {
+            return true;
+        }
+
+        if ($this->totalSubscriptions >= 0 && $this->totalSubscriptions < $this->maxSubscriptions) {
             $this->totalSubscriptions += $value;
 
             return true;

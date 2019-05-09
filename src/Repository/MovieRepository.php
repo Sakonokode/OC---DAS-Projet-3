@@ -5,9 +5,9 @@ namespace App\Repository;
 
 
 use App\Entity\Movie;
+use DateTime;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
-use Doctrine\ORM\EntityManagerInterface;
 
 /**
  * @method Movie|null find($id, $lockMode = null, $lockVersion = null)

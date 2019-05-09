@@ -1,8 +1,8 @@
 <?php
 
+declare(strict_types=1);
 
 namespace App\DataFixtures;
-
 
 use App\Entity\Movie;
 use DateTime;
@@ -27,12 +27,11 @@ class MovieFixtures extends Fixture
 
         foreach ($movies['movies'] as $title => $movie) {
             $movie = $this->instantiate(
-                $movie['description'],
                 $movie['date'],
                 $movie['duration'],
                 $movie['author'],
                 $movie['content'],
-                $title);
+                $movie['title']);
             $manager->persist($movie);
         }
 
@@ -40,7 +39,6 @@ class MovieFixtures extends Fixture
     }
 
     /**
-     * @param string $description
      * @param string $date
      * @param string $duration
      * @param string $author
@@ -50,17 +48,14 @@ class MovieFixtures extends Fixture
      * @throws Exception
      */
     public function instantiate(
-        string $description,
         string $date,
         string $duration,
         string $author,
         string $content,
-        string $title = null
+        string $title
     ): Movie
     {
         $movie = new Movie();
-        $movie->setDescription($description);
-        #$movie->setDate($dateTime);
         $test = new DateTime($date . ' 00:00:00');
         $movie->setDate($test);
         $movie->setDuration($duration);
