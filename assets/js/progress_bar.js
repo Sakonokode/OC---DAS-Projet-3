@@ -3,20 +3,23 @@ import ReactDOM from 'react-dom';
 
 class ProgressBar extends React.Component {
 
-    state = {
-        loading: this.props.loading || false,
-        percent: this.props.percent || 0
-    };
+    constructor(props) {
+        super(props);
 
-    triggerState() {
+        this.state = {
+            loading: this.props.loading || false,
+            percent: this.props.percent || 0
+        };
+    }
+
+    componentWillReceiveProps(nextProps, nextContext) {
         this.setState({
-            loading: this.state.loading,
-            percent: this.state.percent
-        });
+            ...nextProps
+        })
     }
 
     render() {
-        let value = this.state.percent.concat('%');
+        let value = this.state.percent.toString().concat('%');
         let duration = '300ms';
         let divStyle = {
             transitionDuration: duration,
@@ -24,7 +27,7 @@ class ProgressBar extends React.Component {
         };
 
         return (
-            <div className="ui yellow progress progress-bar" data-percent={this.state.percent}>
+            <div className="ui yellow progress progress-bar">
                 <div className="bar" style={divStyle}></div>
             </div>
         );

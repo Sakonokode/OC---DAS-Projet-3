@@ -9,10 +9,6 @@ use App\Entity\Subscription;
 use App\Entity\User;
 use App\Exception\SubscriptionException;
 use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\ORM\OptimisticLockException;
-use Doctrine\ORM\ORMException;
-use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Class SubscriptionService
@@ -62,7 +58,6 @@ final class SubscriptionService
         $this->manager->persist($subscription);
         $this->manager->persist($seance);
         $this->manager->flush();
-        dump($subscription);
     }
 
     /**
@@ -85,8 +80,6 @@ final class SubscriptionService
             $this->manager->persist($subscription);
             $this->manager->flush();
         }
-
-        dump($subscription);
     }
 
     /**

@@ -4,10 +4,17 @@ import ProgressBar from './progress_bar';
 
 class SubscriptionButton extends React.Component {
 
-    state = {
-        isSubscribed: this.props.isSubscribed || false,
-        dataSeance: this.props.dataSeance || null
-    };
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            isSubscribed: this.props.isSubscribed || false,
+            dataSeance: this.props.dataSeance || null,
+            totalSubscribers : this.props.totalSubscribers || 0,
+            maxSubscribers : this.props.maxSubscribers || 0,
+            percent : this.props.percent || 0
+        };
+    }
 
     handleClick = (e) => {
 
@@ -19,7 +26,9 @@ class SubscriptionButton extends React.Component {
             const str1 = str.concat(this.state.dataSeance);
             const url = str1.concat("/subscribe");
 
-            const like = fetch(url, {
+            const test = `/seance/${str1}/subscribe`;
+
+            const subcribe = fetch(url, {
                 method: 'GET'
             }).then(function (response) {
                 console.log(response.status);
@@ -31,10 +40,12 @@ class SubscriptionButton extends React.Component {
             });
 
             const isSubscribed = this.state.isSubscribed;
-            const dataSeance = this.state.dataSeance;
+            const totalSubscribers = this.state.totalSubscribers + 1;
+            const percent = totalSubscribers * 100 / this.state.maxSubscribers;
 
-            this.setState({dataSeance: dataSeance});
             this.setState({isSubscribed: !isSubscribed});
+            this.setState({totalSubscribers});
+            this.setState({percent});
 
         } else {
 
@@ -42,7 +53,7 @@ class SubscriptionButton extends React.Component {
             const str1 = str.concat(this.state.dataSeance);
             const url = str1.concat("/unsubscribe");
 
-            const like = fetch(url, {
+            const unsubscribe = fetch(url, {
                 method: 'GET'
             }).then(function (response) {
                 console.log(response.status);
@@ -54,23 +65,28 @@ class SubscriptionButton extends React.Component {
             });
 
             const isSubscribed = this.state.isSubscribed;
-            const dataSeance = this.state.dataSeance;
+            const totalSubscribers = this.state.totalSubscribers - 1;
+            const percent = totalSubscribers * 100 / this.state.maxSubscribers;
 
-            this.setState({dataSeance: dataSeance});
             this.setState({isSubscribed: !isSubscribed});
+            this.setState({totalSubscribers});
+            this.setState({percent});
         }
 
     };
 
     render() {
         return (
-            <button className={this.state.isSubscribed ? "ui button red bottom attached button btn-more-detail" :
-                "ui button green bottom attached button btn-more-detail"}
-                    onClick={this.handleClick}>
-                <i className={this.state.isSubscribed ? "minus icon" : "add icon"}/>
-                &nbsp;
-                {this.state.isSubscribed ? "Inscription" : "Inscription"}
-            </button>
+            <div>
+                <button className={this.state.isSubscribed ? "ui button red bottom attached button btn-more-detail" :
+                    "ui button green bottom attached button btn-more-detail"}
+                        onClick={this.handleClick}>
+                    <i className={this.state.isSubscribed ? "minus icon" : "add icon"}/>
+                    &nbsp;
+                    {this.state.isSubscribed ? "Desinscription" : "Inscription"}
+                </button>
+                <ProgressBar percent={this.state.percent}></ProgressBar>
+            </div>
         );
     }
 }
@@ -78,10 +94,16 @@ class SubscriptionButton extends React.Component {
 document.querySelectorAll('span.react-subscription').forEach(function (span) {
     const isSubscribed = span.dataset.isSubscribed;
     const dataSeance = +span.dataset.seance;
-    ReactDOM.render(<SubscriptionButton isSubscribed={isSubscribed} dataSeance={dataSeance}/>, span);
+    const percent = +span.dataset.percent;
+    const totalSubscribers = +span.dataset.totalSubscribers;
+    const maxSubscribers = +span.dataset.maxSubscribers;
+    ReactDOM.render(<SubscriptionButton
+        isSubscribed={isSubscribed}
+        dataSeance={dataSeance}
+        percent={percent}
+        totalSubscribers={totalSubscribers}
+        maxSubscribers={maxSubscribers}
+    />, span);
 });
 
-document.querySelectorAll('div.progress-bar').forEach(function (div) {
-    const percent = div.dataset.percent;
-    ReactDOM.render(<ProgressBar percent={percent}/>, div);
-});
+

@@ -4,9 +4,9 @@
     <a class="item">A propos de nous</a>
     <div class="right item">
         {% if app.user %}
-            <a class="ui inverted button" href="{{ path('logout') }}">Deconnection</a>
+            <a class="ui inverted button" href="{{ path('logout') }}">Deconnexion</a>
         {% else %}
-            <a class="ui inverted button" href="{{ path('login') }}">Connection</a>
+            <a class="ui inverted button" href="{{ path('login') }}">Connexion</a>
             <a class="ui inverted button">Inscription</a>
         {% endif %}
     </div>
