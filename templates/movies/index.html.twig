@@ -48,6 +48,7 @@
                                           data-seance="{{ seance.id }}"
                                           data-total-subscribers="{{ seance.totalSubscriptions }}"
                                           data-max-subscribers="{{ seance.maxSubscriptions }}"
+                                          data-movie-duration="{{ movie.duration }}"
                                     >Subscribe</span>
                                 {% elseif subscription.active == true %}
                                     <span class="react-subscription"
@@ -56,6 +57,7 @@
                                           data-seance="{{ seance.id }}"
                                           data-total-subscribers="{{ seance.totalSubscriptions }}"
                                           data-max-subscribers="{{ seance.maxSubscriptions }}"
+                                          data-movie-duration="{{ movie.duration }}"
                                     >Subscribe</span>
                                 {% elseif subscription.active == false %}
                                     {% set subscription = false %}
@@ -65,16 +67,14 @@
                                           data-seance="{{ seance.id }}"
                                           data-total-subscribers="{{ seance.totalSubscriptions }}"
                                           data-max-subscribers="{{ seance.maxSubscriptions }}"
+                                          data-movie-duration="{{ movie.duration }}"
                                     >Subscribe</span>
                                 {% endif %}
                                 <div class="extra content extra-content">
                                             <span class="left floated">
-                                                <i class="clock outline icon"></i>
-                                                {{ movie.duration }}
                                             </span>
                                     {% if seance is not null %}
                                         <span class="right floated">
-                                                    {{ seance.totalSubscriptions ~ '/' ~ seance.maxSubscriptions ~ ' Places' }}
                                                 </span>
                                         <span class="seance-hour">
                                                     {{ seance.date | date('H:i') }}

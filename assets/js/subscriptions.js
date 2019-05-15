@@ -12,7 +12,8 @@ class SubscriptionButton extends React.Component {
             dataSeance: this.props.dataSeance || null,
             totalSubscribers : this.props.totalSubscribers || 0,
             maxSubscribers : this.props.maxSubscribers || 0,
-            percent : this.props.percent || 0
+            percent : this.props.percent || 0,
+            movieDuration: this.props.movieDuration || 0
         };
     }
 
@@ -78,14 +79,25 @@ class SubscriptionButton extends React.Component {
     render() {
         return (
             <div>
-                <button className={this.state.isSubscribed ? "ui button red bottom attached button btn-more-detail" :
-                    "ui button green bottom attached button btn-more-detail"}
-                        onClick={this.handleClick}>
-                    <i className={this.state.isSubscribed ? "minus icon" : "add icon"}/>
-                    &nbsp;
-                    {this.state.isSubscribed ? "Desinscription" : "Inscription"}
-                </button>
-                <ProgressBar percent={this.state.percent}></ProgressBar>
+                <div>
+                    <button className={this.state.isSubscribed ? "ui button red bottom attached button btn-more-detail" :
+                        "ui button green bottom attached button btn-more-detail"}
+                            onClick={this.handleClick}>
+                        <i className={this.state.isSubscribed ? "minus icon" : "add icon"}/>
+                        &nbsp;
+                        {this.state.isSubscribed ? "Desinscription" : "Inscription"}
+                    </button>
+                    <ProgressBar percent={this.state.percent}></ProgressBar>
+                </div>
+                <div className="extra content extra-content">
+                    <span className="left floated">
+                        <i className="clock outline icon"></i>
+                        {this.state.movieDuration}
+                    </span>
+                    <span className="right floated">
+                        {this.state.totalSubscribers} / {this.state.maxSubscribers} Places
+                    </span>
+                </div>
             </div>
         );
     }
@@ -97,12 +109,14 @@ document.querySelectorAll('span.react-subscription').forEach(function (span) {
     const percent = +span.dataset.percent;
     const totalSubscribers = +span.dataset.totalSubscribers;
     const maxSubscribers = +span.dataset.maxSubscribers;
+    const movieDuration = span.dataset.movieDuration;
     ReactDOM.render(<SubscriptionButton
         isSubscribed={isSubscribed}
         dataSeance={dataSeance}
         percent={percent}
         totalSubscribers={totalSubscribers}
         maxSubscribers={maxSubscribers}
+        movieDuration={movieDuration}
     />, span);
 });
 
