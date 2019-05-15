@@ -31,7 +31,7 @@ class Subscription
     /**
      * @var Seance $seance
      *
-     * @ORM\OneToOne(targetEntity="App\Entity\Seance")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Seance")
      * @ORM\JoinColumn(name="seance_id", referencedColumnName="id")
      */
     protected $seance;
