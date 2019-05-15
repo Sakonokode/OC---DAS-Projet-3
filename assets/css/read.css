@@ -1,0 +1,55 @@
+
+
+iframe {
+    height: 290px;
+    width: 70%;
+    float: right;
+}
+
+.pusher {
+    height: 100%;
+}
+
+.left-floated {
+    float: left;
+}
+
+.right-floated {
+    float: right;
+}
+
+.thumbnail {
+    float: left;
+}
+
+.horizontal-divider {
+    width: 100%;
+}
+
+.grid-container {
+    margin: 0;
+    position: absolute;
+    top: 20%;
+}
+
+@media screen and (max-width: 1280px) {
+    #video-player {
+        width: 360px;
+        height: 215px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    #video-player {
+        width: 300px;
+        height: 215px;
+    }
+}
+
+/* On screens that are 600px or less, set the background color to olive */
+@media screen and (max-width: 600px) {
+    #video-player {
+        width: auto;
+        height: auto;
+    }
+}

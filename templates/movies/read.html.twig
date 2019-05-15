@@ -2,7 +2,7 @@
 
 {% block stylesheets %}
     {{ parent() }}
-    {#<link rel="stylesheet" type="text/css" href="{{ asset('build/movies-styles.css') }}">#}
+    <link rel="stylesheet" type="text/css" href="{{ asset('build/read.css') }}">
 {% endblock %}
 
 {% block page %}
@@ -13,18 +13,51 @@
             </div>
         </div>
         <div id="background">
-            <div class="ui internally celled grid">
+            <div class="ui internally celled grid grid-container">
                 <div class="row">
-                    <div class="three wide column">
-                        <img src="{{ asset('img/' ~ media.title ~ '.jpg') }}">
+                    <div class="four wide column media-container"></div>
+                    <div class="eight wide column media-container">
+                         <img class="thumbnail" src="{{ asset('img/' ~ media.title ~ '.jpg') }}"/>
+                            <iframe  src="{{ media.url }}">
+                             </iframe>
+                        <div class="ui horizontal divider horizontal-divider"></div>
+                        <div class="ui items">
+                            <div class="item">
+                                <div class="content">
+                                    <div class="header">{{ media.title }}</div>
+                                    <div class="meta">
+                                        <span class="date">
+                                            Date de sortie : {{ media.date | date('d/m/Y') }} ({{ media.duration }})
+                                        </span>
+                                        <span class="author">
+                                            De {{ media.author }}
+                                        </span>
+                                    </div>
+                                    <h3>
+                                        SYNOPSYS ET DETAIL
+                                    </h3>
+                                    <div class="description">
+                                        <p>{{ media.content }}</p>
+                                    </div>
+                                    <div class="ui horizontal divider"></div>
+                                    <div class="ui large horizontal list">
+                                        {% for seance in seances %}
+                                            <div class="item">
+                                                <button class="ui button green bottom attached button btn-more-detail">
+                                                    {{ seance.date | date('H:i') }}
+                                                </button>
+                                                <div class="content">
+                                                    <div class="header">{{ seance.totalSubscriptions }}/{{ seance.maxSubscriptions }} Places</div>
+                                                    {{ seance.date | date('d/m/Y') }}
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="ten wide column">
-                        <h2>{{ media.title }}</h2>
-                        <p>{{ media.content }}</p>
-                    </div>
-                    <div class="three wide column">
-                        <img src="https://via.placeholder.com/150x100" class="ui large bordered rounded image">
-                    </div>
+                    <div class="four wide column media-container"></div>
                 </div>
             </div>
         </div>

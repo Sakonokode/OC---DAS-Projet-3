@@ -27,6 +27,12 @@ trait MediaTrait
     protected $duration;
 
     /**
+     * @var string $url
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $url;
+
+    /**
      * @return DateTime|null
      */
     public function getDate(): ?DateTime
@@ -56,5 +62,21 @@ trait MediaTrait
     public function setDuration($duration): void
     {
         $this->duration = $duration;
+    }
+
+    /**
+     * @return string|null ?string
+     */
+    public function getUrl(): ?string
+    {
+        return $this->url;
+    }
+
+    /**
+     * @param string $url
+     */
+    public function setUrl(string $url): void
+    {
+        $this->url = $url;
     }
 }

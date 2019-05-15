@@ -4,7 +4,9 @@
 namespace App\Controller;
 
 use App\Entity\Media;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use App\Entity\Seance;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -14,6 +16,19 @@ use Symfony\Component\HttpFoundation\Response;
  */
 class MediaController extends AbstractController
 {
+
+    /** @var EntityManagerInterface $entityManager */
+    private $entityManager;
+
+    /**
+     * SeanceController constructor.
+     * @param EntityManagerInterface $entityManager
+     */
+    public function __construct(EntityManagerInterface $entityManager)
+    {
+        $this->entityManager = $entityManager;
+    }
+
     /**
      * @Route("/movie/read/{slug}", name="app_read")
      * @param Media $media
@@ -21,6 +36,13 @@ class MediaController extends AbstractController
      */
     public function read(Media $media): Response
     {
-        return new Response($this->renderView('movies/read.html.twig', ['media' => $media]));
+        $repository = $this->entityManager->getRepository(Seance::class);
+        $seances = $repository->findBy(['media' => $media]);
+
+        dump($seances);
+        return new Response($this->renderView('movies/read.html.twig', [
+            'media' => $media,
+            'seances' => $seances
+        ]));
     }
 }

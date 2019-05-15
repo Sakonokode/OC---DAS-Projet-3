@@ -31,7 +31,8 @@ class MovieFixtures extends Fixture
                 $movie['duration'],
                 $movie['author'],
                 $movie['content'],
-                $movie['title']);
+                $movie['title'],
+                $movie['url']);
             $manager->persist($movie);
         }
 
@@ -44,6 +45,7 @@ class MovieFixtures extends Fixture
      * @param string $author
      * @param string $content
      * @param string|null $title
+     * @param string $url
      * @return Movie
      * @throws Exception
      */
@@ -52,7 +54,8 @@ class MovieFixtures extends Fixture
         string $duration,
         string $author,
         string $content,
-        string $title
+        string $title,
+        string $url
     ): Movie
     {
         $movie = new Movie();
@@ -62,6 +65,7 @@ class MovieFixtures extends Fixture
         $movie->setAuthor($author);
         $movie->setContent($content);
         $movie->setTitle($title);
+        $movie->setUrl($url);
         return $movie;
     }
 }
