@@ -97,4 +97,17 @@ final class SubscriptionService
 
         return $subscription !== null && $subscription->isActive();
     }
+
+    /**
+     * @param User $user
+     * @return array|null
+     */
+    public function getUserSubscriptions(User $user): ?array
+    {
+        $repository = $this->manager->getRepository(Subscription::class);
+
+        return $repository->findBy([
+            'user' => $user
+        ]);
+    }
 }

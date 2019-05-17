@@ -1,5 +1,7 @@
-
-
+.top-column-content {
+    text-align: center;
+    padding: 0.5em;
+}
 iframe {
     height: 290px;
     width: 70%;
@@ -22,14 +24,21 @@ iframe {
     float: left;
 }
 
-.horizontal-divider {
+.item {
+    margin: auto;
+}
+
+.button {
     width: 100%;
 }
 
-.grid-container {
-    margin: 0;
-    position: absolute;
-    top: 20%;
+.ui.progress:last-child {
+    margin: 0 0 0.5em !important;
+}
+
+.ui.grid>.row>.column {
+    margin-top: 0;
+    margin-bottom: 1.5em;
 }
 
 @media screen and (max-width: 1280px) {

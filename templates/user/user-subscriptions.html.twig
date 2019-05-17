@@ -1,0 +1,62 @@
+{% extends 'layouts/base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block page %}
+    <div class="ui inverted vertical masthead center aligned segment">
+        <div class="ui container">
+            {% include 'includes/menu.html.twig' %}
+        </div>
+    </div>
+    <div id="background">
+        <div class="ui internally celled grid">
+            <div class="row">
+                <div class="four wide column media-container"></div>
+                <div class="eight wide column media-container">
+                    <h2>Mes Inscriptions</h2>
+                    {% for subscription in subscriptions %}
+                        {% if subscription.active == true %}
+                            {% set media = subscription.seance.media %}
+                            <div class="ui items">
+                                <div class="item">
+                                    <div class="image">
+                                        <img alt="{{ subscription.seance.media.title }}"
+                                             src="{{ asset('img/' ~ media.title ~ '.jpg') }}">
+                                    </div>
+                                    <div class="content">
+                                        <h3 class="header">{{ media.title }}</h3>
+                                        <div class="meta">
+                                            <span>De {{ media.author }}</span>
+                                        </div>
+                                        <div class="description">
+                                            <p>{{ media.content }}</p>
+                                        </div>
+                                        <div class="extra">
+                                            <a class="ui right floated primary button"
+                                               href="{{ path('app_read', {'slug': media.slug}) }}">
+                                                {{ subscription.seance.date | date('H:i') }}
+                                                <i class="right chevron icon"></i>
+                                            </a>
+                                            <div class="ui left floated">
+                                                <i className="clock outline icon"></i>
+                                                {{ media.duration }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <div class="four wide column media-container"></div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}

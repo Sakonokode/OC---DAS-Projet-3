@@ -39,7 +39,6 @@ class MediaController extends AbstractController
         $repository = $this->entityManager->getRepository(Seance::class);
         $seances = $repository->findBy(['media' => $media]);
 
-        dump($seances);
         return new Response($this->renderView('movies/read.html.twig', [
             'media' => $media,
             'seances' => $seances

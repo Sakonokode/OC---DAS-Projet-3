@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Twig;
 
 
+use App\Entity\Media;
 use App\Entity\Movie;
 use App\Entity\Seance;
 use App\Entity\Subscription;
@@ -52,6 +53,7 @@ final class AppExtension extends AbstractExtension
     {
         return [
             new TwigFunction('get_subscription', [$this, 'getSubscription']),
+            new TwigFunction('get_movie', [$this, 'getMovie'])
         ];
     }
 
@@ -68,15 +70,26 @@ final class AppExtension extends AbstractExtension
     }
 
     /**
-     * @param User $user
-     * @param Movie $movie
+     * @param Seance $seance
      * @return Subscription|mixed|null
-     * @throws NonUniqueResultException
      */
-    public function getSubscription(User $user, Movie $movie)
+    public function getSubscription(Seance $seance)
     {
         $repository = $this->manager->getRepository(Subscription::class);
 
-        return $repository->getSubscription($user, $movie);
+        return $repository->findOneBy([
+            'seance' => $seance,
+        ]);
+    }
+
+    /**
+     * @param Subscription $subscription
+     * @return Media|null
+     */
+    public function getMovie(Subscription $subscription): ?Media
+    {
+        $repository = $this->manager->getRepository(Media::class);
+
+        return $repository->find($subscription->getSeance()->getMedia()->getId());
     }
 }

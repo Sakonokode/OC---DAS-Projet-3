@@ -9,24 +9,22 @@
         {% endblock %}
     </head>
     <body>
-        {% block header %}{% endblock %}
-        {% block body %}
-            {% block page %}
+        <div class="pusher">
+            {% block header %}{% endblock %}
+            {% block body %}
+                {% block page %}
 
+                {% endblock %}
             {% endblock %}
-        {% endblock %}
-        {% block footer %}
-            <div class="row">
-                <div class="sixteen column">
-                    {% include 'includes/footer.html.twig' %}
-                </div>
-            </div>
-        {% endblock %}
+            {% block footer %}
+                {% include 'includes/footer.html.twig' %}
+            {% endblock %}
 
-        {% block javascripts %}
-            <script src="{{ asset('build/app.js') }}"></script>
-            <script src="{{ asset('build/vendors~app.js') }}"></script>
-            <script src="{{ asset('build/runtime.js') }}"></script>
-        {% endblock %}
+            {% block javascripts %}
+                <script src="{{ asset('build/app.js') }}"></script>
+                <script src="{{ asset('build/vendors~app.js') }}"></script>
+                <script src="{{ asset('build/runtime.js') }}"></script>
+            {% endblock %}
+        </div>
     </body>
 </html>

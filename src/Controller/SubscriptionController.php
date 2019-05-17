@@ -70,4 +70,20 @@ class SubscriptionController extends AbstractController
             'message' => 'unsubscription success'
         ], Response::HTTP_OK);
     }
+
+    /**
+     * @param User $user
+     *
+     * @Route("/subscriptions/{id}", name="app_subscriptions")
+     *
+     * @return Response
+     */
+    public function list(User $user): Response
+    {
+        $subscriptions = $this->subscriptionService->getUserSubscriptions($user);
+
+        return new Response($this->renderView('user/user-subscriptions.html.twig', [
+            'subscriptions' => $subscriptions
+        ]));
+    }
 }

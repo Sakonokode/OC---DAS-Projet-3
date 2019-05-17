@@ -78,7 +78,7 @@ class SubscriptionButton extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="seance-subscriptions-container">
                 <div>
                     <button className={this.state.isSubscribed ? "ui button red bottom attached button btn-more-detail" :
                         "ui button green bottom attached button btn-more-detail"}

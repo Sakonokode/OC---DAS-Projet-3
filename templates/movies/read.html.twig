@@ -6,49 +6,87 @@
 {% endblock %}
 
 {% block page %}
-    <div class="pusher">
-        <div class="ui inverted vertical masthead center aligned segment movie-detail-container">
-            <div class="ui container">
-                {% include 'includes/menu.html.twig' %}
-            </div>
+    <div class="ui inverted vertical masthead center aligned segment movie-detail-container">
+        <div class="ui container">
+            {% include 'includes/menu.html.twig' %}
         </div>
-        <div id="background">
-            <div class="ui internally celled grid grid-container">
-                <div class="row">
-                    <div class="four wide column media-container"></div>
-                    <div class="eight wide column media-container">
-                         <img class="thumbnail" src="{{ asset('img/' ~ media.title ~ '.jpg') }}"/>
-                            <iframe  src="{{ media.url }}">
-                             </iframe>
-                        <div class="ui horizontal divider horizontal-divider"></div>
-                        <div class="ui items">
-                            <div class="item">
-                                <div class="content">
-                                    <div class="header">{{ media.title }}</div>
-                                    <div class="meta">
-                                        <span class="date">
-                                            Date de sortie : {{ media.date | date('d/m/Y') }} ({{ media.duration }})
-                                        </span>
-                                        <span class="author">
-                                            De {{ media.author }}
-                                        </span>
-                                    </div>
-                                    <h3>
-                                        SYNOPSYS ET DETAIL
-                                    </h3>
-                                    <div class="description">
-                                        <p>{{ media.content }}</p>
-                                    </div>
-                                    <div class="ui horizontal divider"></div>
-                                    <div class="ui large horizontal list">
+    </div>
+    <div id="background">
+        <div class="ui internally celled grid">
+            <div class="row">
+                <div class="four wide column media-container"></div>
+                <div class="eight wide column media-container">
+                    <img class="thumbnail" src="{{ asset('img/' ~ media.title ~ '.jpg') }}"/>
+                    <iframe src="{{ media.url }}">
+                    </iframe>
+                    <div class="ui items">
+                        <div class="item">
+                            <div class="content">
+                                <div class="header">{{ media.title }}</div>
+                                <div class="meta">
+                                    <span class="date">
+                                        Date de sortie : {{ media.date | date('d/m/Y') }} ({{ media.duration }})
+                                    </span>
+                                    <span class="author">
+                                        De {{ media.author }}
+                                    </span>
+                                </div>
+                                <h3>
+                                    SYNOPSYS ET DETAIL
+                                </h3>
+                                <div class="description">
+                                    <p>{{ media.content }}</p>
+                                </div>
+                                <div class="ui horizontal divider"></div>
+                                <div class="ui four column grid center aligned">
+                                    <div class="row">
                                         {% for seance in seances %}
-                                            <div class="item">
-                                                <button class="ui button green bottom attached button btn-more-detail">
-                                                    {{ seance.date | date('H:i') }}
-                                                </button>
-                                                <div class="content">
-                                                    <div class="header">{{ seance.totalSubscriptions }}/{{ seance.maxSubscriptions }} Places</div>
-                                                    {{ seance.date | date('d/m/Y') }}
+                                            <div class="column">
+                                                <div class="ui cards">
+                                                    <div class="card">
+                                                        <div class="ui content">
+                                                            <h4 class="ui blue header">
+                                                                Le {{ seance.date | date('d/m/Y') }}
+                                                                à {{ seance.date | date('H:i') }}
+                                                            </h4>
+                                                        </div>
+                                                        {% set subscription = get_subscription(seance) %}
+                                                        {% set subscriptionPercent = 0 %}
+                                                        {% if seance is not null %}
+                                                            {% if seance.totalSubscriptions > 0 %}
+                                                                {% set subscriptionPercent = (seance.totalSubscriptions * 100) / seance.maxSubscriptions | round %}
+                                                            {% endif %}
+                                                        {% endif %}
+                                                        {% if subscription is null %}
+                                                            {% set subscription = false %}
+                                                            <span class="react-subscription"
+                                                                  data-is-subscribed="{{ subscription }}"
+                                                                  data-percent="{{ subscriptionPercent }}"
+                                                                  data-seance="{{ seance.id }}"
+                                                                  data-total-subscribers="{{ seance.totalSubscriptions }}"
+                                                                  data-max-subscribers="{{ seance.maxSubscriptions }}"
+                                                                  data-movie-duration="{{ media.duration }}"
+                                                            >Subscribe</span>
+                                                        {% elseif subscription.active == true %}
+                                                            <span class="react-subscription"
+                                                                  data-is-subscribed="{{ subscription.active }}"
+                                                                  data-percent="{{ subscriptionPercent }}"
+                                                                  data-seance="{{ seance.id }}"
+                                                                  data-total-subscribers="{{ seance.totalSubscriptions }}"
+                                                                  data-max-subscribers="{{ seance.maxSubscriptions }}"
+                                                                  data-movie-duration="{{ media.duration }}"
+                                                            >Subscribe</span>
+                                                        {% elseif subscription.active == false %}
+                                                            <span class="react-subscription"
+                                                                  data-is-subscribed="{{ subscription.active }}"
+                                                                  data-percent="{{ subscriptionPercent }}"
+                                                                  data-seance="{{ seance.id }}"
+                                                                  data-total-subscribers="{{ seance.totalSubscriptions }}"
+                                                                  data-max-subscribers="{{ seance.maxSubscriptions }}"
+                                                                  data-movie-duration="{{ media.duration }}"
+                                                            >Subscribe</span>
+                                                        {% endif %}
+                                                    </div>
                                                 </div>
                                             </div>
                                         {% endfor %}
@@ -57,8 +95,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="four wide column media-container"></div>
                 </div>
+                <div class="four wide column media-container"></div>
             </div>
         </div>
     </div>
@@ -66,4 +104,7 @@
 
 {% block javascripts %}
     {{ parent() }}
+    <script src="{{ asset('build/subscriptions.js') }}"></script>
+    <script src="{{ asset('build/progress.js') }}"></script>
+    <script src="{{ asset('build/vendors~progress~subscriptions.js') }}"></script>
 {% endblock %}
