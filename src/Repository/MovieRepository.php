@@ -5,15 +5,18 @@ namespace App\Repository;
 
 
 use App\Entity\Movie;
-use DateTime;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
+ * Class MovieRepository
+ *
  * @method Movie|null find($id, $lockMode = null, $lockVersion = null)
  * @method Movie|null findOneBy(array $criteria, array $orderBy = null)
  * @method Movie[]    findAll()
  * @method Movie[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ *
+ * @package App\Repository
  */
 class MovieRepository extends ServiceEntityRepository
 {

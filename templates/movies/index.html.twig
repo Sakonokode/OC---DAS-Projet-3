@@ -33,6 +33,7 @@
                                     </a>
                                     {% set seance = movie | next_seance %}
                                     {% set subscription = get_subscription(seance) %}
+                                    {% set subscription = null %}
                                     {% set subscriptionPercent = 0 %}
                                     {% if seance is not null %}
                                         {% if seance.totalSubscriptions > 0 %}

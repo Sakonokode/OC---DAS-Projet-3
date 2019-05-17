@@ -16,38 +16,39 @@
                 <div class="four wide column media-container"></div>
                 <div class="eight wide column media-container">
                     <h2>Mes Inscriptions</h2>
-                    {% for subscription in subscriptions %}
-                        {% if subscription.active == true %}
-                            {% set media = subscription.seance.media %}
-                            <div class="ui items">
-                                <div class="item">
-                                    <div class="image">
-                                        <img alt="{{ subscription.seance.media.title }}"
-                                             src="{{ asset('img/' ~ media.title ~ '.jpg') }}">
+                    {% for movie, seances in subscriptions %}
+                        {% set media = get_movie_by_id(movie) %}
+                        <div class="ui items">
+                            <div class="item">
+                                <div class="image">
+                                    <img alt="{{ media.title }}"
+                                         src="{{ asset('img/' ~ media.title ~ '.jpg') }}">
+                                </div>
+                                <div class="content">
+                                    <h3 class="header">{{ media.title }}</h3>
+                                    <div class="meta">
+                                        <span>De {{ media.author }}</span>
                                     </div>
-                                    <div class="content">
-                                        <h3 class="header">{{ media.title }}</h3>
-                                        <div class="meta">
-                                            <span>De {{ media.author }}</span>
-                                        </div>
-                                        <div class="description">
-                                            <p>{{ media.content }}</p>
-                                        </div>
-                                        <div class="extra">
+                                    <div class="description">
+                                        <p>{{ media.content }}</p>
+                                    </div>
+                                    <div class="extra">
+                                        {% for seance in seances %}
                                             <a class="ui right floated primary button"
                                                href="{{ path('app_read', {'slug': media.slug}) }}">
-                                                {{ subscription.seance.date | date('H:i') }}
+                                                Le {{ seance.date | date('d/m/Y') }}
+                                                à {{ seance.date | date('H:i') }}
                                                 <i class="right chevron icon"></i>
                                             </a>
-                                            <div class="ui left floated">
-                                                <i className="clock outline icon"></i>
-                                                {{ media.duration }}
-                                            </div>
+                                        {% endfor %}
+                                        <div class="ui left floated">
+                                            <i class="clock outline icon"></i>
+                                            {{ media.duration }}
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        {% endif %}
+                        </div>
                     {% endfor %}
                 </div>
                 <div class="four wide column media-container"></div>

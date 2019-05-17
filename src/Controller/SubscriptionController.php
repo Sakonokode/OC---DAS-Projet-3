@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Entity\Seance;
+use App\Entity\Subscription;
 use App\Entity\User;
 use App\Exception\SubscriptionException;
 use App\Service\SubscriptionService;
@@ -80,7 +81,10 @@ class SubscriptionController extends AbstractController
      */
     public function list(User $user): Response
     {
-        $subscriptions = $this->subscriptionService->getUserSubscriptions($user);
+        $repository = $this->getDoctrine()->getRepository(Subscription::class);
+        $subscriptions = $repository->getMediaSubscriptions($user);
+
+        #$subscriptions = $this->subscriptionService->getSubscriptions($user);
 
         return new Response($this->renderView('user/user-subscriptions.html.twig', [
             'subscriptions' => $subscriptions

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Service;
 
+use App\Entity\Media;
 use App\Entity\Seance;
 use App\Entity\Subscription;
 use App\Entity\User;
@@ -84,30 +85,13 @@ final class SubscriptionService
 
     /**
      * @param User $user
-     * @param Seance $seance
-     * @return bool
-     */
-    public function isSubscribed(User $user, Seance $seance): bool
-    {
-        $repository = $this->manager->getRepository(Subscription::class);
-        $subscription = $repository->findOneBy([
-            'user' => $user,
-            'seance' => $seance
-        ]);
-
-        return $subscription !== null && $subscription->isActive();
-    }
-
-    /**
-     * @param User $user
+     * @param Media|null $media
      * @return array|null
      */
-    public function getUserSubscriptions(User $user): ?array
+    public function getSubscriptions(User $user, Media $media = null): ?array
     {
         $repository = $this->manager->getRepository(Subscription::class);
 
-        return $repository->findBy([
-            'user' => $user
-        ]);
+        return $repository->getSubscriptions($user, $media);
     }
 }

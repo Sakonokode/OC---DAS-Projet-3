@@ -53,7 +53,8 @@ final class AppExtension extends AbstractExtension
     {
         return [
             new TwigFunction('get_subscription', [$this, 'getSubscription']),
-            new TwigFunction('get_movie', [$this, 'getMovie'])
+            new TwigFunction('get_movie', [$this, 'getMovie']),
+            new TwigFunction('get_movie_by_id', [$this, 'getMovieById']),
         ];
     }
 
@@ -73,9 +74,11 @@ final class AppExtension extends AbstractExtension
      * @param Seance $seance
      * @return Subscription|mixed|null
      */
-    public function getSubscription(Seance $seance)
+    public function getSubscription(Seance $seance): ?Subscription
     {
         $repository = $this->manager->getRepository(Subscription::class);
+
+        dump($seance);
 
         return $repository->findOneBy([
             'seance' => $seance,
@@ -91,5 +94,19 @@ final class AppExtension extends AbstractExtension
         $repository = $this->manager->getRepository(Media::class);
 
         return $repository->find($subscription->getSeance()->getMedia()->getId());
+    }
+
+    /**
+     * @param int $id
+     * @return Movie|null
+     */
+    public function getMovieById(int $id): ?Movie
+    {
+        $repository = $this->manager->getRepository(Movie::class);
+
+        $result = $repository->find($id);
+        #$this->manager->refresh($result);
+
+        return $result;
     }
 }
