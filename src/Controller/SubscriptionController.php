@@ -43,7 +43,6 @@ class SubscriptionController extends AbstractController
     {
         try {
             $this->subscriptionService->subscribe($this->getUser(), $seance);
-            dump('test');
         } catch (Exception $e) {
             throw new SubscriptionException('inscription failed', $e->getCode(), $e);
         }

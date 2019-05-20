@@ -4,15 +4,11 @@ declare(strict_types=1);
 
 namespace App\Twig;
 
-
 use App\Entity\Media;
 use App\Entity\Movie;
 use App\Entity\Seance;
 use App\Entity\Subscription;
-use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\ORM\NonUniqueResultException;
-use Doctrine\ORM\NoResultException;
 use Exception;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
@@ -78,8 +74,6 @@ final class AppExtension extends AbstractExtension
     {
         $repository = $this->manager->getRepository(Subscription::class);
 
-        dump($seance);
-
         return $repository->findOneBy([
             'seance' => $seance,
         ]);
@@ -104,9 +98,6 @@ final class AppExtension extends AbstractExtension
     {
         $repository = $this->manager->getRepository(Movie::class);
 
-        $result = $repository->find($id);
-        #$this->manager->refresh($result);
-
-        return $result;
+        return $repository->find($id);
     }
 }

@@ -6,6 +6,7 @@ iframe {
     height: 290px;
     width: 70%;
     float: right;
+    margin-bottom: 0.5em;
 }
 
 .pusher {
@@ -21,6 +22,7 @@ iframe {
 }
 
 .thumbnail {
+    display: flex;
     float: left;
 }
 
@@ -41,24 +43,37 @@ iframe {
     margin-bottom: 1.5em;
 }
 
+@media screen and (max-width: 1540px) {
+    iframe {
+        width: 100%;
+        float: right;
+    }
+
+    .thumbnail {
+        display: none;
+    }
+}
+
 @media screen and (max-width: 1280px) {
-    #video-player {
-        width: 360px;
-        height: 215px;
+    iframe {
+        width: 100%;
     }
 }
 
 @media screen and (max-width: 992px) {
-    #video-player {
-        width: 300px;
-        height: 215px;
+    iframe {
+        width: 100%;
     }
 }
 
-/* On screens that are 600px or less, set the background color to olive */
-@media screen and (max-width: 600px) {
-    #video-player {
-        width: auto;
-        height: auto;
+@media screen and (max-width: 767px) {
+    iframe {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 479px) {
+    iframe {
+        width: 100%;
     }
 }

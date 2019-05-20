@@ -12,10 +12,56 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    height: 50%;
     min-height: 800px;
 }
 
 .top-menu-container {
     background: #1b1c1d;
+}
+
+.gmap-container {
+    width: 600px;
+    height: 350px;
+}
+
+@media screen and (max-width: 1540px) {
+    /* start of large tablet styles */
+    .gmap-container {
+        width: 450px;
+    }
+
+}
+
+@media screen and (max-width: 1200px) {
+    /* start of large tablet styles */
+    .gmap-container {
+        width: 300px;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    /* start of large tablet styles */
+    .gmap-container {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    /* start of medium tablet styles */
+    .gmap-container {
+        width: 100%;
+    }
+
+}
+
+@media screen and (max-width: 479px) {
+
+    .content-container {
+        width: 100% !important;
+    }
+
+    .gmap-container {
+        width: 100px;
+        height: 100px;
+    }
 }
