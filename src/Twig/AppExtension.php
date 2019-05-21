@@ -51,6 +51,7 @@ final class AppExtension extends AbstractExtension
             new TwigFunction('get_subscription', [$this, 'getSubscription']),
             new TwigFunction('get_movie', [$this, 'getMovie']),
             new TwigFunction('get_movie_by_id', [$this, 'getMovieById']),
+            new TwigFunction('get_gmap_api_key', [$this, 'getGmapApiKey']),
         ];
     }
 
@@ -99,5 +100,15 @@ final class AppExtension extends AbstractExtension
         $repository = $this->manager->getRepository(Movie::class);
 
         return $repository->find($id);
+    }
+
+    /**
+     * @return string
+     */
+    public function getGmapApiKey(): string
+    {
+        $apiKey = __DIR__ . '/../../../../API-Keys/gmapApiKey.txt';
+
+        return file_get_contents($apiKey);
     }
 }

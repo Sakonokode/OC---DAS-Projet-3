@@ -39,11 +39,12 @@
                         Complément d'adresse :<br/>
                         boulevard de Courcelles, avenue Vélasquez, avenue Van Dyck, avenue Ruysdael</p>
                 </div>
+                {%  set apiKey = get_gmap_api_key() %}
                 <div class="six wide right floated column">
                     <iframe class="gmap-container"
                             width="600"
                             height="450"
-                            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA8_J5HzeTsQaKQPSECj7eS5xVVXdUeyUo
+                            src="https://www.google.com/maps/embed/v1/place?key={{ apiKey }}
                             &q=Parc+Monceau" allowfullscreen>
                     </iframe>
                 </div>

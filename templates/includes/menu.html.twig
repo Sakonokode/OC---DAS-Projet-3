@@ -1,6 +1,6 @@
 <div class="ui large secondary inverted pointing menu">
     <a class="item" href="{{ path('home') }}">Accueil</a>
-    <a class="item" href="{{ path('app_movies') }}">Films a l'affiche</a>
+    <a class="item" href="{{ path('app_movies') }}">Films à l'affiche</a>
     {% if app.user %}
         <a class="item" href="{{ path('app_subscriptions', {'id': app.user}) }}">Inscriptions</a>
     {% endif %}
