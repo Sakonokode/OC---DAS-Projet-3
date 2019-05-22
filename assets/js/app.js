@@ -10,8 +10,25 @@ require('../css/app.css');
 require('semantic-ui/dist/semantic.min');
 require('semantic-ui/dist/semantic.min.css');
 
+$(document)
+    .ready(function() {
 
+        // fix menu when passed
+        $('.masthead')
+            .visibility({
+                once: false,
+                onBottomPassed: function() {
+                    $('.fixed.menu').transition('fade in');
+                },
+                onBottomPassedReverse: function() {
+                    $('.fixed.menu').transition('fade out');
+                }
+            })
+        ;
 
-// Need jQuery? Install it with "yarn add jquery", then uncomment to require it.
-// const $ = require('jquery');
-
+        // create sidebar and attach to menu open
+        $('.ui.sidebar')
+            .sidebar('attach events', '.toc.item')
+        ;
+    })
+;

@@ -16,6 +16,8 @@ use Symfony\Component\Yaml\Yaml;
  */
 class UserFixtures extends Fixture
 {
+    public const ADMIN_USER_REFERENCE = 'admin@gmail.com';
+
     /** @var UserPasswordEncoderInterface $passEncoder */
     private $passEncoder;
 
@@ -28,6 +30,9 @@ class UserFixtures extends Fixture
         $this->passEncoder = $passwordEncoder;
     }
 
+    /**
+     * @param ObjectManager $manager
+     */
     public function load(ObjectManager $manager): void
     {
         $users = Yaml::parseFile(__DIR__ . '/fixtures/users.yaml');
@@ -39,6 +44,7 @@ class UserFixtures extends Fixture
         }
 
         $manager->flush();
+        $this->addReference(self::ADMIN_USER_REFERENCE, $user);
     }
 
     /**

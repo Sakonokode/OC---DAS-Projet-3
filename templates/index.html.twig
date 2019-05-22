@@ -57,16 +57,36 @@
         </div>
     </div>
     <div class="ui vertical stripe segment">
-        <div class="ui text container">
-            <h3 class="ui header">Lorem Ipsum Dolor Sit Amet, Consectetur</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vitae tempus purus. Curabitur eu metus suscipit lorem eleifend dictum. In tempor ipsum et tempor posuere. Nulla nec tellus risus. Sed ac ipsum vel diam ultricies accumsan sed ac metus. Nam lobortis odio eu eros faucibus mollis. Aenean quis mi dapibus, tempor odio venenatis, rutrum turpis.</p>
-            <a class="ui large button">Read More</a>
-            <h4 class="ui horizontal header divider">
-                <a href="#">Case Studies</a>
-            </h4>
-            <h3 class="ui header">Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing Elit. Sed Placerat ?</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut laoreet libero ut turpis maximus posuere. Etiam egestas, erat quis elementum auctor, risus mi rhoncus neque, eu egestas ligula elit ac purus. Ut placerat sed elit ut luctus. Pellentesque tristique orci non dictum sodales. Nunc eu venenatis lacus, sit amet commodo ipsum. Phasellus nec nunc ut magna eleifend pharetra a id arcu. Pellentesque rhoncus tellus arcu, at posuere lorem interdum id. Sed non mi pretium, interdum augue in, finibus massa. Aenean ante sapien, faucibus nec viverra at, dignissim quis ante. Suspendisse et vestibulum urna, a dignissim lacus. Sed bibendum vitae orci vitae faucibus. Quisque lobortis orci id augue dictum, ut efficitur nisl fringilla. Quisque eget velit pretium, feugiat turpis eu, imperdiet nunc. Duis arcu orci, congue ut nibh ac, egestas dictum mi. In elementum, nisl id feugiat ullamcorper, lectus velit tristique sapien, eu interdum sapien diam sed massa. Pellentesque ultricies odio at enim pulvinar ornare.</p>
-            <a class="ui large button">Read More</a>
+        <div class="ui middle aligned stackable grid container">
+
+        {% for post in posts %}
+                <div class="row">
+                    <div class="one wide column media-container"></div>
+                    <div class="fourteen wide column media-container">
+                        <h2>
+                            {#<a href="{{ path('read', {'slug': post.slug}) }}">{{ post.title }}</a>#}
+                            {{ post.title }}
+                        </h2>
+                        <p>
+                            {{ post.content }}
+                        </p>
+                        <div class="row">
+                            <div class="col">
+                                <h2>
+                                    {{ post.author.email }}
+                                </h2>
+                            </div>
+                            <div class="col"></div>
+                            <div class="col">
+                                <h2>
+                                    {{ post.created|date("d/m/Y") }}
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="one wide column media-container"></div>
+                </div>
+            {% endfor %}
         </div>
     </div>
 {% endblock %}

@@ -20,4 +20,26 @@ use Gedmo\Mapping\Annotation as Gedmo;
 abstract class Media
 {
     use MediaTrait;
+
+    /**
+     * @var null|string $author
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $author;
+
+    /**
+     * @return null|string
+     */
+    public function getAuthor(): ?string
+    {
+        return $this->author;
+    }
+
+    /**
+     * @param string $author
+     */
+    public function setAuthor(string $author): void
+    {
+        $this->author = $author;
+    }
 }

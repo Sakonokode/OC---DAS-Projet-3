@@ -1,7 +1,7 @@
 
 
 .ui.inverted.button {
-    margin-right: 20px !important;
+    margin-right: 10px !important;
 }
 
 #background {
@@ -43,25 +43,5 @@
     /* start of large tablet styles */
     .gmap-container {
         width: 100%;
-    }
-}
-
-@media screen and (max-width: 767px) {
-    /* start of medium tablet styles */
-    .gmap-container {
-        width: 100%;
-    }
-
-}
-
-@media screen and (max-width: 479px) {
-
-    .content-container {
-        width: 100% !important;
-    }
-
-    .gmap-container {
-        width: 100px;
-        height: 100px;
     }
 }

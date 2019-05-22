@@ -30,12 +30,6 @@ trait DescribableTrait
     protected $slug;
 
     /**
-     * @var null|string $author
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    protected $author;
-
-    /**
      * @var null|string $content
      * @ORM\Column(type="text", nullable=true)
      */
@@ -87,22 +81,6 @@ trait DescribableTrait
     public function setSlug($slug): void
     {
         $this->slug = $slug;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAuthor(): ?string
-    {
-        return $this->author;
-    }
-
-    /**
-     * @param string $author
-     */
-    public function setAuthor(string $author): void
-    {
-        $this->author = $author;
     }
 
     /**
