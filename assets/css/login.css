@@ -4,6 +4,11 @@ body > .grid {
 
 .column {
     max-width: 450px;
+    margin: 0;
+    position: absolute !important;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
 }
 
 body {

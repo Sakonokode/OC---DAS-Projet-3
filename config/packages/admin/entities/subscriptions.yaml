@@ -1,0 +1,18 @@
+easy_admin:
+  entities:
+    Subscription:
+      class: App\Entity\Subscription
+      controller: App\Controller\SubscriptionController
+      form:
+        fields:
+          - { property: 'active', label: 'Is Active', type: 'checkbox' }
+
+      list:
+        title: "Utilisateurs"
+        fields:
+          - { property: 'id' }
+          - { property: 'user', label: 'Utilisateur' }
+          - { property: 'seance', label: 'Séance' }
+          - { property: 'active', label: 'Est active' }
+          - { property: 'created', label: 'Crée le' }
+          - { property: 'updated', label: 'Mis à jour le' }

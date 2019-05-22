@@ -1,0 +1,23 @@
+easy_admin:
+  entities:
+    Movie:
+      label: 'Films'
+      class: App\Entity\Movie
+      controller: App\Controller\MovieController
+      form:
+        fields:
+          - { property: 'title', label: 'Title', type: 'text' }
+          - { property: 'duration', label: 'Duration', type: 'time' }
+          - { property: 'date', label: 'Date', type: 'date' }
+          - { property: 'author', label: 'Author', type: 'text'}
+          - { property: 'deleted', label: 'Deleted', type: 'date'}
+
+      list:
+        title: "Films"
+        fields:
+          - { property: 'id' }
+          - { property: 'title', label: 'Titre'}
+          - { property: 'duration', label: 'Durée'}
+          - { property: 'slug', label: 'Slug'}
+          - { property: 'created', label: 'Crée le'}
+          - { property: 'updated', label: 'Mis à jour le'}

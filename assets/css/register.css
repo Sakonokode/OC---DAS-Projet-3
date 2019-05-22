@@ -4,8 +4,19 @@ body > .grid {
 
 .column {
     max-width: 450px;
+    margin: 0;
+    position: absolute !important;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
 }
 
 body {
     background-color: #DADADA;
+}
+
+input {
+    -webkit-box-shadow: 0 0 0 100px ivory inset !important;
+    box-shadow: 0 0 0 100px ivory inset !important;
+    border-color: #e5dfa1 !important;
 }

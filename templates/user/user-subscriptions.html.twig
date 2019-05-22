@@ -16,40 +16,52 @@
                 <div class="four wide column media-container"></div>
                 <div class="eight wide column media-container">
                     <h2>Mes Inscriptions</h2>
-                    {% for movie, seances in subscriptions %}
-                        {% set media = get_movie_by_id(movie) %}
-                        <div class="ui items">
-                            <div class="item">
-                                <div class="image">
-                                    <img alt="{{ media.title }}"
-                                         src="{{ asset('img/' ~ media.title ~ '.jpg') }}">
-                                </div>
-                                <div class="content">
-                                    <h3 class="header">{{ media.title }}</h3>
-                                    <div class="meta">
-                                        <span>De {{ media.author }}</span>
+                    {% if subscriptions %}
+                        {% for movie, seances in subscriptions %}
+                            {% set media = get_movie_by_id(movie) %}
+                            <div class="ui items">
+                                <div class="item">
+                                    <div class="image">
+                                        <img alt="{{ media.title }}"
+                                             src="{{ asset('img/' ~ media.title ~ '.jpg') }}">
                                     </div>
-                                    <div class="description">
-                                        <p>{{ media.content }}</p>
-                                    </div>
-                                    <div class="extra">
-                                        {% for seance in seances %}
-                                            <a class="ui right floated primary button"
-                                               href="{{ path('app_read', {'slug': media.slug}) }}">
-                                                Le {{ seance.date | date('d/m/Y') }}
-                                                à {{ seance.date | date('H:i') }}
-                                                <i class="right chevron icon"></i>
-                                            </a>
-                                        {% endfor %}
-                                        <div class="ui left floated">
-                                            <i class="clock outline icon"></i>
-                                            {{ media.duration }}
+                                    <div class="content">
+                                        <h3 class="header">{{ media.title }}</h3>
+                                        <div class="meta">
+                                            <span>De {{ media.author }}</span>
+                                        </div>
+                                        <div class="description">
+                                            <p>{{ media.content }}</p>
+                                        </div>
+                                        <div class="extra">
+                                            {% for seance in seances %}
+                                                <a class="ui right floated primary button"
+                                                   href="{{ path('app_read', {'slug': media.slug}) }}">
+                                                    Le {{ seance.date | date('d/m/Y') }}
+                                                    à {{ seance.date | date('H:i') }}
+                                                    <i class="right chevron icon"></i>
+                                                </a>
+                                            {% endfor %}
+                                            <div class="ui left floated">
+                                                <i class="clock outline icon"></i>
+                                                {{ media.duration }}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        {% endfor %}
+                    {% else %}
+                        <style type="text/css">
+                            .no-subs-container {
+                                margin: 50% 0 50% 0;
+                                text-align: center;
+                            }
+                        </style>
+                        <div class="no-subs-container">
+                            <p>Vous n'etes inscrit a aucune seance actuellement</p>
                         </div>
-                    {% endfor %}
+                    {% endif %}
                 </div>
                 <div class="four wide column media-container"></div>
 

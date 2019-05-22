@@ -7,15 +7,15 @@ namespace App\Controller;
 use App\Entity\Seance;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
+use EasyCorp\Bundle\EasyAdminBundle\Controller\AdminController as BaseAdminController;
 
 /**
  * Class SeanceController
  * @package App\Controller
  */
-class SeanceController extends AbstractController
+class SeanceController extends BaseAdminController
 {
     /** @var EntityManagerInterface $entityManager */
     private $entityManager;

@@ -14,12 +14,13 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
+use EasyCorp\Bundle\EasyAdminBundle\Controller\AdminController as BaseAdminController;
 
 /**
  * Class SubscriptionController
  * @package App\Controller
  */
-class SubscriptionController extends AbstractController
+class SubscriptionController extends BaseAdminController
 {
     /** @var SubscriptionService $subscriptionService */
     private $subscriptionService;

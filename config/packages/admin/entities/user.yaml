@@ -1,0 +1,23 @@
+easy_admin:
+  entities:
+    User:
+      label: 'Utilisateurs'
+      class: App\Entity\User
+      controller: App\Controller\UserController
+      form:
+        fields:
+          - { property: 'email', label: 'Email', type: 'email' }
+          - { property: 'password', label: 'Password', type: 'password' }
+          - { property: 'isActive', label: 'Is Active', type: 'checkbox' }
+          - { property: 'profile', label: 'Profile', type: 'entity' }
+          - { property: 'roles', label: 'Roles', type: 'choice', type_options: {expanded: true, multiple: true, choices: {'ROLE_USER': 'ROLE_USER', 'ROLE_ADMIN': 'ROLE_ADMIN' }}}
+
+      list:
+        title: "Utilisateurs"
+        fields:
+          - { property: 'id' }
+          - { property: 'email', label: 'Email' }
+          - { property: 'isActive', label: 'Est actif' }
+          - { property: 'roles', label: 'Roles' }
+          - { property: 'created', label: 'Crée le' }
+          - { property: 'updated', label: 'Mis à jour le' }

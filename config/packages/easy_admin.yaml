@@ -1,0 +1,21 @@
+imports:
+  - { resource: admin/entities/movie.yaml }
+  - { resource: admin/entities/user.yaml }
+  - { resource: admin/entities/seance.yaml }
+  - { resource: admin/entities/subscriptions.yaml }
+
+easy_admin:
+  site_name: 'Festival des Films en Plein Air'
+  design:
+    assets:
+      css:
+        - 'bundles/easyadmin/bootstrap-all.css'
+      js:
+        - 'bundles/easyadmin/bootstrap-all.js'
+    brand_color: '#009C95'
+
+  list:
+    actions:
+      - { name: 'show', label: 'Détail', icon: 'search' }
+      - { name: 'edit', label: 'Editer', icon: 'pencil' }
+      - { name: 'delete', label: 'Supprimer', icon: 'trash' }

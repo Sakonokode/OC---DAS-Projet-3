@@ -6,16 +6,16 @@ namespace App\Controller;
 
 use App\Entity\Seance;
 use Exception;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 use Doctrine\ORM\EntityManagerInterface;
+use EasyCorp\Bundle\EasyAdminBundle\Controller\AdminController as BaseAdminController;
 
 /**
  * Class MovieController
  * @package App\Controller
  */
-class MovieController extends AbstractController
+class MovieController extends BaseAdminController
 {
     /** @var EntityManagerInterface $entityManager */
     private $entityManager;
