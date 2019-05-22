@@ -14,3 +14,7 @@ body > .grid {
 body {
     background-color: #DADADA;
 }
+
+.welcome-container {
+    text-align: center;
+}
