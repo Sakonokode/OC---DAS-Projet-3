@@ -78,6 +78,7 @@ class SeanceRepository extends ServiceEntityRepository
         LEFT JOIN media ON seance.media_id = media.id
         WHERE seance.date BETWEEN :startDate AND :endDate
         AND discr='movie'
+        AND media.deleted IS NULL
 SQL;
 
         $rsm = new ResultSetMapping();

@@ -2,6 +2,10 @@
     margin: 0 5% 0 5%;
 }
 
+.ui.cards>.card {
+    width: 100%;
+}
+
 img {
     margin: auto;
     max-width: 70%;

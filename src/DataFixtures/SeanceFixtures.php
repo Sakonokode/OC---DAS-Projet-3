@@ -45,7 +45,7 @@ class SeanceFixtures extends Fixture
         $movies = $repository->findAll();
         $now = new DateTime('now');
 
-        for ($day = 21; $day <= 23; $day++) {
+        for ($day = 23; $day <= 25; $day++) {
             /** @var Movie $movie */
             foreach ($movies as $movie) {
                 /** @var Seance $seance */

@@ -28,16 +28,12 @@
 }
 
 .gmap-container {
-    width: 600px;
-    height: 350px;
+    width: 100%;
+    margin: 7rem 0 1.5rem 0;
 }
 
-@media screen and (max-width: 1540px) {
-    /* start of large tablet styles */
-    .gmap-container {
-        width: 450px;
-    }
-
+.infos-container {
+    align-self: start !important;
 }
 
 @media screen and (max-width: 1200px) {

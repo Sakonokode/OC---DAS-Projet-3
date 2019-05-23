@@ -7,6 +7,7 @@
 
 {% block page %}
     {% include 'includes/menu.html.twig' %}
+    {%  set apiKey = get_gmap_api_key() %}
     <div class="ui inverted vertical masthead center aligned segment" id="background">
         <div class="ui container">
             <div class="ui text container">
@@ -21,28 +22,26 @@
     <div class="ui vertical stripe segment">
         <div class="ui middle aligned stackable grid container">
             <div class="row">
-                <div class="eight wide column">
+                <div class="eight wide column infos-container">
                     <h3 class="ui header">Informations</h3>
                     <p>Mon association "Les Films de Plein Air" vient d'obtenir l'autorisation de projeter au parc Monceau cette année du 5 au 8 août chaque soir, de 18h à minuit. Je souhaite ainsi faire découvrir des films d'auteur au grand public.
                     </p>
-                    <h3 class="ui header">Accès</h3>
-                    <p>L'accès aux projections est gratuit et ouvert à tous, pensez à créer un compte afin de pouvoir consulter et vous inscrire aux différents films.</p>
-                    <p>
-                        35, boulevard de Courcelles<br/>
-                        75008 PARIS<br/><br/>
-                        Complément d'adresse :<br/>
-                        boulevard de Courcelles, avenue Vélasquez, avenue Van Dyck, avenue Ruysdael</p>
                 </div>
-                {%  set apiKey = get_gmap_api_key() %}
-                <div class="six wide right floated column">
-                    <iframe class="gmap-container"
-                            width="600"
-                            height="450"
-                            src="https://www.google.com/maps/embed/v1/place?key={{ apiKey }}
-                            &q=Parc+Monceau" allowfullscreen>
-                    </iframe>
+                <div class="eight wide column infos-container">
+                    <h3 class="ui header">Accès</h3>
+                    <p>L'accès aux projections est gratuit et ouvert à tous, pensez à créer un compte afin de pouvoir consulter et vous inscrire aux différents films.
+                        <br/>
+                        35, boulevard de Courcelles
+                        75008 PARIS
+                    </p>
                 </div>
             </div>
+            <iframe class="gmap-container"
+                    width="600"
+                    height="450"
+                    src="https://www.google.com/maps/embed/v1/place?key={{ apiKey }}
+                            &q=Parc+Monceau" allowfullscreen>
+            </iframe>
             <div class="row">
                 <div class="center aligned column">
                     <a class="ui huge primary button" href="{{ path('user_registration') }}">Inscription</a>

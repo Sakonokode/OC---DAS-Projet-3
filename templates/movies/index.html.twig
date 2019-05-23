@@ -10,75 +10,7 @@
     <div id="background">
         <div class="ui four column grid">
             <div class="row">
-                {% for movie in movies %}
-                    <div class="column">
-                        <div class="ui cards">
-                            <div class="card">
-                                <div class="image">
-                                    <img alt="{{ movie.title }}"
-                                         src="{{ asset('img/' ~ movie.title ~ '.jpg') }}">
-                                </div>
-                                <div class="content">
-                                    <div class="header">{{ movie.title }}</div>
-                                    <div class="meta">{{ movie.author }}</div>
-                                    <div class="description">{{ movie.content }}</div>
-                                    <a class="ui button primary bottom attached button btn-more-detail"
-                                       href="{{ path('app_read_media', {'slug': movie.slug}) }}">
-                                        <i class="eye icon"></i>
-                                        Plus d'infos
-                                    </a>
-                                    {% set seance = movie | next_seance %}
-                                    {% set subscription = get_subscription(seance) %}
-                                    {% set subscriptionPercent = 0 %}
-                                    {% if seance is not null %}
-                                        {% if seance.totalSubscriptions > 0 %}
-                                            {% set subscriptionPercent = (seance.totalSubscriptions * 100) / seance.maxSubscriptions | round %}
-                                        {% endif %}
-                                    {% endif %}
-                                    {% if subscription is null %}
-                                        {% set subscription = false %}
-                                        <span class="react-subscription"
-                                              data-is-subscribed="{{ subscription }}"
-                                              data-percent="{{ subscriptionPercent }}"
-                                              data-seance="{{ seance.id }}"
-                                              data-total-subscribers="{{ seance.totalSubscriptions }}"
-                                              data-max-subscribers="{{ seance.maxSubscriptions }}"
-                                              data-movie-duration="{{ movie.duration }}"
-                                        >Subscribe</span>
-                                    {% elseif subscription.active == true %}
-                                        <span class="react-subscription"
-                                              data-is-subscribed="{{ subscription.active }}"
-                                              data-percent="{{ subscriptionPercent }}"
-                                              data-seance="{{ seance.id }}"
-                                              data-total-subscribers="{{ seance.totalSubscriptions }}"
-                                              data-max-subscribers="{{ seance.maxSubscriptions }}"
-                                              data-movie-duration="{{ movie.duration }}"
-                                        >Subscribe</span>
-                                    {% elseif subscription.active == false %}
-                                        <span class="react-subscription"
-                                              data-is-subscribed="{{ subscription.active }}"
-                                              data-percent="{{ subscriptionPercent }}"
-                                              data-seance="{{ seance.id }}"
-                                              data-total-subscribers="{{ seance.totalSubscriptions }}"
-                                              data-max-subscribers="{{ seance.maxSubscriptions }}"
-                                              data-movie-duration="{{ movie.duration }}"
-                                        >Subscribe</span>
-                                    {% endif %}
-                                    <div class="extra content extra-content">
-                                        <span class="left floated"></span>
-                                        {% if seance is not null %}
-                                            <span class="right floated">
-                                                </span>
-                                            <span class="seance-hour">
-                                                    {{ seance.date | date('H:i') }}
-                                                </span>
-                                        {% endif %}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                {% endfor %}
+                {% include 'includes/movies.html.twig' %}
             </div>
         </div>
     </div>

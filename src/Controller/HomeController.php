@@ -23,7 +23,7 @@ class HomeController extends AbstractController
     {
         $repository = $this->getDoctrine()->getRepository(Post::class);
 
-        $posts = $repository->findAll();
+        $posts = $repository->findBy(['deleted' => null]);
 
         return new Response($this->renderView('index.html.twig', ['posts' => $posts]));
     }
