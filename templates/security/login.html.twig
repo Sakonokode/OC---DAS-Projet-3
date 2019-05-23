@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <title>{% block title %}Welcome!{% endblock %}</title>
     {% block stylesheets %}
@@ -62,12 +62,13 @@
         {% endblock %}
     {% endblock %}
     {% block footer %}{% endblock %}
-    {% block javascripts %}
-        <script src="{{ asset('build/app.js') }}"></script>
-        <script src="{{ asset('build/vendors~app.js') }}"></script>
-        <script src="{{ asset('build/runtime.js') }}"></script>
-        <script src="{{ asset('build/login-styles.js') }}"></script>
-    {% endblock %}
 </div>
+{% block javascripts %}
+    <script src="{{ asset('build/app.js') }}"></script>
+    <script src="{{ asset('build/vendors~app.js') }}"></script>
+    <script src="{{ asset('build/runtime.js') }}"></script>
+    <script src="{{ asset('build/login-styles.js') }}"></script>
+{% endblock %}
+
 </body>
 </html>

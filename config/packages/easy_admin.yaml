@@ -2,7 +2,9 @@ imports:
   - { resource: admin/entities/movie.yaml }
   - { resource: admin/entities/user.yaml }
   - { resource: admin/entities/seance.yaml }
-  - { resource: admin/entities/subscriptions.yaml }
+  - { resource: admin/entities/subscription.yaml }
+  - { resource: admin/entities/post.yaml }
+  - { resource: admin/entities/comment.yaml }
 
 easy_admin:
   site_name: 'Festival des Films en Plein Air'

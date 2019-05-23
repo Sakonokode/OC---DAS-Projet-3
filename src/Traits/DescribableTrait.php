@@ -12,8 +12,8 @@ use Gedmo\Mapping\Annotation as Gedmo;
 trait DescribableTrait
 {
     /**
-     * var string $title
-     * @ORM\Column(type="string", length=255)
+     * var null|string $title
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     protected $title;
 
@@ -36,9 +36,9 @@ trait DescribableTrait
     protected $content;
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getTitle(): string
+    public function getTitle(): ?string
     {
         return $this->title;
     }

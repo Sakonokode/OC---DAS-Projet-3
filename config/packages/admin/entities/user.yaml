@@ -21,3 +21,4 @@ easy_admin:
           - { property: 'roles', label: 'Roles' }
           - { property: 'created', label: 'Crée le' }
           - { property: 'updated', label: 'Mis à jour le' }
+          - { property: 'deleted', label: 'Supprime le'}

@@ -1,22 +1,19 @@
 easy_admin:
   entities:
-    Movie:
-      label: 'Films'
-      class: App\Entity\Movie
-      controller: App\Controller\MovieController
+    Post:
+      label: 'Articles'
+      class: App\Entity\Post
+      controller: App\Controller\PostController
       form:
         fields:
           - { property: 'title', label: 'Titre', type: 'text' }
-          - { property: 'duration', label: 'Duree', type: 'text' }
-          - { property: 'date', label: 'Date', type: 'date' }
-          - { property: 'author', label: 'Auteur', type: 'text'}
+          - { property: 'content', label: 'Contenu', type: 'textarea' }
 
       list:
-        title: "Films"
+        title: "Articles"
         fields:
           - { property: 'id' }
           - { property: 'title', label: 'Titre'}
-          - { property: 'duration', label: 'Durée'}
           - { property: 'slug', label: 'Slug'}
           - { property: 'created', label: 'Crée le'}
           - { property: 'updated', label: 'Mis à jour le'}

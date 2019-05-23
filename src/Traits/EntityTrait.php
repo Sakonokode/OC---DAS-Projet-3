@@ -5,6 +5,8 @@ namespace App\Traits;
 
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
+use Exception;
+use Symfony\Component\Validator\Constraints\Date;
 
 /**
  * Trait EntityTrait
@@ -42,15 +44,15 @@ trait EntityTrait
     /**
      * @ORM\PrePersist
      * @ORM\PreUpdate
-     * @throws \Exception
+     * @throws Exception
      */
     public function autoUpdateDates(): void
     {
         if ($this->created === null) {
-            $this->created = new DateTime('NOW');
+            $this->created = new DateTime('now');
         }
 
-        $this->updated = new DateTime('NOW');
+        $this->updated = new DateTime('now');
     }
 
     /**
@@ -111,8 +113,9 @@ trait EntityTrait
 
     /**
      * @param DateTime|null $deleted
+     * @throws Exception
      */
-    public function setDeleted(?DateTime $deleted): void
+    public function setDeleted(?DateTime $deleted = null): void
     {
         $this->deleted = $deleted;
     }

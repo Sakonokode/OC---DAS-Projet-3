@@ -1,0 +1,50 @@
+{% extends 'layouts/base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="{{ asset('build/edit_post_styles.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/froala-editor@3.0.0-beta.2/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('bundles/kmsfroalaeditor/froala_editor_2.9.4/css/froala_style.css') }}" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block page %}
+    <div class="ui center aligned grid">
+        <div class="column">
+            <h2 class="ui teal image header">
+                <div class="content">
+                    Editer l'article
+                </div>
+            </h2>
+            <form class="ui large form" action="{{ path('app_edit_post', {'slug': post.slug}) }}" method="post">
+                {{ form_start(form) }}
+                    <div class="ui stacked segment">
+                        <div class="ui teal tag label left">Titre</div>
+                        <div class="field">
+                            <div class="ui left icon input">
+                                <i class="pen square icon"></i>
+                                {{ form_widget(form.title, {'attr': {'placeholder': "Titre..."}}) }}
+                            </div>
+                        </div>
+                        <div class="ui teal tag label">Contenu</div>
+                        <div class="field">
+                            <div class="froala-view">
+                                {{ form_widget(form.content, {'attr': {'placeholder': "Contenu..."}}) }}
+                            </div>
+                        </div>
+                        <button class="ui fluid large teal submit button">ENVOYER</button>
+                        <br/>
+                        <a class="ui fluid red button" href="{{ path('app_read_post', {'slug': post.slug}) }}">ANNULER</a>
+                    </div>
+                {{ form_end(form) }}
+            </form>
+        </div>
+    </div>
+{% endblock %}
+
+{% block footer %}{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/froala-editor@3.0.0-beta.2/js/froala_editor.pkgd.min.js"></script>
+    <script src="{{ asset('build/edit_post.js') }}"></script>
+{% endblock %}

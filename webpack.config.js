@@ -27,6 +27,8 @@ Encore
     .addEntry('progress', './assets/js/progress_bar.js')
     .addEntry('read', './assets/css/read.css')
     .addEntry('read_post', './assets/css/read_post.css')
+    .addEntry('edit_post_styles', './assets/css/edit_post.css')
+    .addEntry('edit_post', './assets/js/edit_post.js')
     .addEntry('comments-styles', './assets/css/comments.css')
     .addEntry('comments', './assets/js/comments.js')
     //.addEntry('page1', './assets/js/page1.js')

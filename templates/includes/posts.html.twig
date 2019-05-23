@@ -3,13 +3,20 @@
         <div class="row">
             <div class="one wide column"></div>
             <div class="fourteen wide column">
-                <img class="thumbnail" src="https://via.placeholder.com/1010x400" alt="placeholder"/>
+                <img class="thumbnail" src="https://via.placeholder.com/1010x300" alt="placeholder"/>
                 <h2>
                     <a href="{{ path('app_read_post', {'slug': post.slug}) }}">{{ post.title }}</a>
                 </h2>
-                <p>
-                    {{ post.content }}
-                </p>
+                <div class="fr-view">
+                    {{ post.content | raw }}
+                </div>
+                <br/>
+                <div class="section">
+                    <a href="{{ path('app_edit_post', {'slug': post.slug }) }}" class="btn btn-lg btn-block btn-success">
+                        <i class="edit large outline icon"></i>
+                        Editer le contenu
+                    </a>
+                </div>
             </div>
             <div class="one wide column"></div>
         </div>
@@ -18,10 +25,10 @@
             <div class="fourteen wide column">
                 <div class="post-details">
                     <span class="post-author">
-                        Publie par {{ post.author.email }}
+                        Par {{ post.author.email }}
                     </span>
                     <span class="post-date">
-                        Publie le {{ post.created|date("d/m/Y") }} a {{ post.created|date("h:i") }}
+                        Le {{ post.created|date("d/m/Y") }} a {{ post.created|date("h:i") }}
                     </span>
                 </div>
             </div>

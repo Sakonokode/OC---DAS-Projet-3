@@ -7,16 +7,12 @@
 {% endblock %}
 
 {% block page %}
-    <div class="ui inverted vertical masthead center aligned segment">
-        <div class="ui container">
-            {% include 'includes/menu.html.twig' %}
-        </div>
-    </div>
+    {% include 'includes/menu.html.twig' %}
     <div class="ui internally celled grid">
         <div class="row">
             <div class="one wide column"></div>
             <div class="fourteen wide column">
-                <img class="thumbnail" src="https://via.placeholder.com/1580x600" alt="placeholder"/>
+                <img class="thumbnail" src="https://via.placeholder.com/1580x300" alt="placeholder"/>
                 <div class="ui items">
                     <div class="item">
                         <div class="content">
@@ -29,11 +25,17 @@
                                         De {{ post.author.email }}
                                     </span>
                             </div>
-                            <div class="content">
-                                <p>{{ post.content }}</p>
+                            <div class="fr-view">
+                                {{ post.content | raw }}
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="section">
+                    <a href="{{ path('app_edit_post', {'slug': post.slug }) }}" class="btn btn-lg btn-block btn-success">
+                        <i class="edit large outline icon"></i>
+                        Editer le contenu
+                    </a>
                 </div>
                 <div class="ui horizontal divider"></div>
                 <div class="ui comments-container">

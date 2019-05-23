@@ -1,0 +1,19 @@
+easy_admin:
+  entities:
+    Comment:
+      label: 'Commentaires'
+      class: App\Entity\Comment
+      controller: App\Controller\CommentController
+      form:
+        fields:
+          - { property: 'content', label: 'Contenu', type: 'textarea' }
+
+      list:
+        title: "Commentaires"
+        fields:
+          - { property: 'id' }
+          - { property: 'author', label: 'Auteur' }
+          - { property: 'content', label: 'Contenu'}
+          - { property: 'created', label: 'Crée le'}
+          - { property: 'updated', label: 'Mis à jour le'}
+          - { property: 'deleted', label: 'Supprime le'}

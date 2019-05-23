@@ -16,3 +16,4 @@ easy_admin:
           - { property: 'active', label: 'Est active' }
           - { property: 'created', label: 'Crée le' }
           - { property: 'updated', label: 'Mis à jour le' }
+          - { property: 'deleted', label: 'Supprime le'}

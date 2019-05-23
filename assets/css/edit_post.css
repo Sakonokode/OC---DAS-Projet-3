@@ -1,0 +1,29 @@
+.ui.teal.tag.label {
+    float: left;
+    margin-bottom: 2px;
+}
+
+.column {
+    max-width: 800px;
+    margin: 0;
+    position: absolute !important;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.pusher {
+    background-color: #DADADA !important;
+}
+
+@media screen and (max-width: 767px) {
+    .column {
+        height: 100% !important;
+        padding: 0.5em 0 0 0 !important;
+    }
+
+    .froala-view {
+        max-height: 280px !important;
+        overflow-y: scroll !important;
+    }
+}
