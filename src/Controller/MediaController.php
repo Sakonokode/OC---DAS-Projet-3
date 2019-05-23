@@ -30,7 +30,7 @@ class MediaController extends AbstractController
     }
 
     /**
-     * @Route("/movie/read/{slug}", name="app_read")
+     * @Route("/movie/read/{slug}", name="app_read_media")
      * @param Media $media
      * @return Response
      */

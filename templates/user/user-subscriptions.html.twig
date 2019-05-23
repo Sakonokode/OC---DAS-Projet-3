@@ -2,6 +2,7 @@
 
 {% block stylesheets %}
     {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="{{ asset('build/read_post.css') }}">
 {% endblock %}
 
 {% block page %}
@@ -10,7 +11,6 @@
             {% include 'includes/menu.html.twig' %}
         </div>
     </div>
-    <div id="background">
         <div class="ui internally celled grid">
             <div class="row">
                 <div class="four wide column media-container"></div>
@@ -36,7 +36,7 @@
                                         <div class="extra">
                                             {% for seance in seances %}
                                                 <a class="ui right floated primary button"
-                                                   href="{{ path('app_read', {'slug': media.slug}) }}">
+                                                   href="{{ path('app_read_media', {'slug': media.slug}) }}">
                                                     Le {{ seance.date | date('d/m/Y') }}
                                                     à {{ seance.date | date('H:i') }}
                                                     <i class="right chevron icon"></i>
@@ -67,7 +67,6 @@
 
             </div>
         </div>
-    </div>
 {% endblock %}
 
 {% block javascripts %}

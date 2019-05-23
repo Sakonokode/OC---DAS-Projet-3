@@ -34,8 +34,6 @@
                     <p>
                         35, boulevard de Courcelles<br/>
                         75008 PARIS<br/><br/>
-
-
                         Complément d'adresse :<br/>
                         boulevard de Courcelles, avenue Vélasquez, avenue Van Dyck, avenue Ruysdael</p>
                 </div>
@@ -57,37 +55,7 @@
         </div>
     </div>
     <div class="ui vertical stripe segment">
-        <div class="ui middle aligned stackable grid container">
-
-        {% for post in posts %}
-                <div class="row">
-                    <div class="one wide column media-container"></div>
-                    <div class="fourteen wide column media-container">
-                        <h2>
-                            {#<a href="{{ path('read', {'slug': post.slug}) }}">{{ post.title }}</a>#}
-                            {{ post.title }}
-                        </h2>
-                        <p>
-                            {{ post.content }}
-                        </p>
-                        <div class="row">
-                            <div class="col">
-                                <h2>
-                                    {{ post.author.email }}
-                                </h2>
-                            </div>
-                            <div class="col"></div>
-                            <div class="col">
-                                <h2>
-                                    {{ post.created|date("d/m/Y") }}
-                                </h2>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="one wide column media-container"></div>
-                </div>
-            {% endfor %}
-        </div>
+        {% include 'includes/posts.html.twig' %}
     </div>
 {% endblock %}
 

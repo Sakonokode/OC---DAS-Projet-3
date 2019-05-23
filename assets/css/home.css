@@ -19,6 +19,14 @@
     background: #1b1c1d;
 }
 
+.post-author {
+    float: left;
+}
+
+.post-date {
+    float: right;
+}
+
 .gmap-container {
     width: 600px;
     height: 350px;

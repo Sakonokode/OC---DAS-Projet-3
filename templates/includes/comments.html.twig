@@ -1,0 +1,32 @@
+<div class="comment">
+    <a class="avatar">
+        <img src="https://via.placeholder.com/35/35" />
+    </a>
+    <div class="content">
+        <span class="author">{{ comment.author.email }}</span>
+        <div class="metadata">
+            <span class="date">{{ comment.created | date("m/d/Y") }}</span>
+        </div>
+        <div class="text">
+            {{ comment.content }}
+        </div>
+        <div class="actions">
+            <a class="reply">Repondre</a>
+            {% if comment.children | length > 0  %}
+                {% if comment.children | length == 1 %}
+                    <a class="show-replies">Afficher la reponse</a>
+                {% else %}
+                    <a class="show-replies">Afficher les {{ comment.children | length }} reponses</a>
+                {% endif %}
+            {% endif %}
+        </div>
+        <div class="answer-form">
+            {{ render(controller('App\\Controller\\CommentController::reply', {'post': post, 'parent': comment})) }}
+        </div>
+    </div>
+    {% for children in comment.children %}
+        <div class="comments comment-replies">
+            {% include 'includes/comments.html.twig' with {'post': post, 'comment': children} %}
+        </div>
+    {% endfor %}
+</div>

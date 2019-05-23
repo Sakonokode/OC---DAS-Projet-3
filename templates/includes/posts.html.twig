@@ -1,0 +1,32 @@
+<div class="ui middle aligned stackable grid container">
+    {% for post in posts %}
+        <div class="row">
+            <div class="one wide column"></div>
+            <div class="fourteen wide column">
+                <img class="thumbnail" src="https://via.placeholder.com/1010x400" alt="placeholder"/>
+                <h2>
+                    <a href="{{ path('app_read_post', {'slug': post.slug}) }}">{{ post.title }}</a>
+                </h2>
+                <p>
+                    {{ post.content }}
+                </p>
+            </div>
+            <div class="one wide column"></div>
+        </div>
+        <div class="row">
+            <div class="one wide column"></div>
+            <div class="fourteen wide column">
+                <div class="post-details">
+                    <span class="post-author">
+                        Publie par {{ post.author.email }}
+                    </span>
+                    <span class="post-date">
+                        Publie le {{ post.created|date("d/m/Y") }} a {{ post.created|date("h:i") }}
+                    </span>
+                </div>
+            </div>
+            <div class="one wide column"></div>
+        </div>
+        <div class="ui horizontal divider" style="height: 40px"></div>
+    {% endfor %}
+</div>

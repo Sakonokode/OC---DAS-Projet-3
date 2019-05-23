@@ -1,0 +1,62 @@
+{% extends 'layouts/base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="{{ asset('build/comments-styles.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('build/read_post.css') }}">
+{% endblock %}
+
+{% block page %}
+    <div class="ui inverted vertical masthead center aligned segment">
+        <div class="ui container">
+            {% include 'includes/menu.html.twig' %}
+        </div>
+    </div>
+    <div class="ui internally celled grid">
+        <div class="row">
+            <div class="one wide column"></div>
+            <div class="fourteen wide column">
+                <img class="thumbnail" src="https://via.placeholder.com/1580x600" alt="placeholder"/>
+                <div class="ui items">
+                    <div class="item">
+                        <div class="content">
+                            <div class="header">{{ post.title }}</div>
+                            <div class="meta">
+                                    <span class="date">
+                                        Date de sortie : {{ post.created | date('d/m/Y') }}
+                                    </span>
+                                <span class="author">
+                                        De {{ post.author.email }}
+                                    </span>
+                            </div>
+                            <div class="content">
+                                <p>{{ post.content }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui horizontal divider"></div>
+                <div class="ui comments-container">
+                    <h3 class="ui header">
+                        {{ post.comments | length}}
+                        commentaires
+                    </h3>
+                    {{ render(controller('App\\Controller\\CommentController::new', {'slug': post.slug})) }}
+                    <div class="ui comments">
+                        {% if post.comments is not empty %}
+                            {% for comment in post.comments %}
+                                {% include 'includes/comments.html.twig' with {'post': post, 'comment': comment} %}
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="one wide column"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('build/comments.js') }}"></script>
+{% endblock %}
