@@ -36,16 +36,16 @@
     align-self: start !important;
 }
 
-@media screen and (max-width: 1200px) {
-    /* start of large tablet styles */
-    .gmap-container {
-        width: 300px;
-    }
-}
-
 @media screen and (max-width: 991px) {
     /* start of large tablet styles */
     .gmap-container {
         width: 100%;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    /* start of large tablet styles */
+    #inscription-button {
+        margin-bottom: 1rem;
     }
 }
