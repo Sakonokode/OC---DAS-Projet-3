@@ -1,3 +1,7 @@
 .ui.internally.celled.grid {
     margin: 8em 0 8em 0;
 }
+
+.comment-section-divider {
+    height: 1rem;
+}
