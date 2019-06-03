@@ -26,16 +26,4 @@ Prérequis : Vous avez besoin d'une version récente de node js, et Webpack  (in
     
     git clone git@github.com:Sakonokode/OC---DAS-Projet-3.git
     cd OC---DAS-Projet-3
-    composer install
-    npm install ou yarn install si vous utilisez yarn
-
-Configurez la base de donnees en editant le fichier .env renseignez le nom de la base, l'utilisateur et le mot de passe.
-Creez la base et charger les fixtures :
-
-    bin/console doctrine:database:create --if-not-exists
-    bin/console doctrine:schema:create
-    bin/console doctrine:fixtures:load
-
-Enfin, lancez yarn :
-
-    yarn encore dev --watch
+    make init
