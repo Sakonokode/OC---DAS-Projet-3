@@ -7,7 +7,6 @@
     <title>{% block title %}Welcome!{% endblock %}</title>
     {% block stylesheets %}
         <link rel="stylesheet" type="text/css" href="{{ asset('build/app.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{ asset('build/vendors~app.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('build/login-styles.css') }}">
     {% endblock %}
 </head>
@@ -36,13 +35,13 @@
                             <div class="field">
                                 <div class="ui left icon input">
                                     <i class="user icon"></i>
-                                    <input type="text" name="_username" placeholder="E-mail address">
+                                    <input type="text" name="_username" placeholder="E-mail address...">
                                 </div>
                             </div>
                             <div class="field">
                                 <div class="ui left icon input">
                                     <i class="lock icon"></i>
-                                    <input type="password" name="_password" placeholder="Password">
+                                    <input type="password" name="_password" placeholder="Password...">
                                 </div>
                             </div>
                             <button class="ui fluid large teal submit button">Login</button>
@@ -65,7 +64,6 @@
 </div>
 {% block javascripts %}
     <script src="{{ asset('build/app.js') }}"></script>
-    <script src="{{ asset('build/vendors~app.js') }}"></script>
     <script src="{{ asset('build/runtime.js') }}"></script>
     <script src="{{ asset('build/login-styles.js') }}"></script>
 {% endblock %}

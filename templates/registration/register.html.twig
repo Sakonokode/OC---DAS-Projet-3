@@ -7,7 +7,6 @@
     <title>{% block title %}Welcome!{% endblock %}</title>
     {% block stylesheets %}
         <link rel="stylesheet" type="text/css" href="{{ asset('build/app.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{ asset('build/vendors~app.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('build/register-styles.css') }}">
     {% endblock %}
 </head>
@@ -65,7 +64,6 @@
     {% block footer %}{% endblock %}
     {% block javascripts %}
         <script src="{{ asset('build/app.js') }}"></script>
-        <script src="{{ asset('build/vendors~app.js') }}"></script>
         <script src="{{ asset('build/runtime.js') }}"></script>
     {% endblock %}
 </div>
