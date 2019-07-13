@@ -1,12 +1,12 @@
 <?php
 
+declare(strict_types=1);
 
 namespace App\Traits;
 
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 use Exception;
-use Symfony\Component\Validator\Constraints\Date;
 
 /**
  * Trait EntityTrait
